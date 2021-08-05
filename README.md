@@ -10,12 +10,16 @@
 ### dir
 #### sts-work-final ( 2021-08-00 )
 
+
+#### sts-work3 ( 2021-08-06 )
+- board.xml
+- BoardController.java
+- views/board/*.jsp
+
 #### sts-work3 ( 2021-08-05 )
 - co.kr.Hello.dto.BoardDTO.java
 - board.xml
 - mybatis-config.xml
-- BoardController.java
-- views/board/*.jsp
 
 #### sts-work2 ( 2021-08-05 )
 - MemberController.java 수정
