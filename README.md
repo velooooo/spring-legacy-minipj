@@ -7,7 +7,16 @@
 - 게시판, 회원관리 ( https://wasupup.tistory.com/267 )
 
 # dir
-- sts-work1 (2021-08-04)
-- sts-work2 (2021-08-05)
-- 
-- sts-wrok-final (2021-08-00)
+### sts-work1 (2021-08-04)
+- pom.xml
+- web.xml
+- root-context.xml
+- mybatis-config.xml
+- member.xml
+- MemberDTO.java
+- MemberController.java
+- 일부 view(html)
+### sts-work2 (2021-08-05)
+- 요청명 .do추가
+- 일부 view(html) 수정 및 
+### sts-wrok-final (2021-08-00)
