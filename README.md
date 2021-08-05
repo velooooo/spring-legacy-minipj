@@ -9,6 +9,13 @@
 
 ### dir
 #### sts-work1 ( 2021-08-04 )
+- 
 #### sts-work2 ( 2021-08-05 )
+- MemberController.java 수정
+- views/member/*.jsp
 #### sts-work3 ( 2021-08-05 )
+- board.xml
+- mybatis-config.xml
+- BoardController.java
+- views/board/*.jsp
 #### sts-work-final ( 2021-08-00 )
