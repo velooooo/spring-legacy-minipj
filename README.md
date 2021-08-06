@@ -1,10 +1,19 @@
 # spring-legacy-minipj - STS3) Spring Legacy MiNi Project
 - 게시판, 회원관리 ( https://wasupup.tistory.com/267 )
 ## ver
+### 개발환경
+- window10
+- tomcat8.0
+- mysql 5.5
+- java version 1.8.0_40
+- myBatis 3.2.8
 - sts3
-- mybatis 3.2.8
-- mysql 5.1.31
 - jdbc 3.2.3
+### 개발언어
+- java, spring, jsp
+- jsjq
+- html5, css3
+- mybatis 
 
 # dir
 ## sts_work_home ( 2021-08-00 )
