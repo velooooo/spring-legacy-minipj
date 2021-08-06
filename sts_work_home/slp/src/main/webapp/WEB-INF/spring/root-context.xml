@@ -5,9 +5,9 @@
 	
 <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
     <property name="driver" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://localhost:3306/ch20"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/community"/>
     <property name="username" value="root"/>
-    <property name="password" value="12345"/>
+    <property name="password" value="1234"/>
 </bean>
 
 <bean id="transactionManager"

@@ -1,0 +1,63 @@
+create database community;
+
+use community;
+
+drop table member;
+
+create table member(
+num int not null primary key auto_increment,
+id varchar(20) not null,
+pw varchar(15) not null,
+name varchar(30) not null,
+email varchar(30) not null,
+tel varchar(14) not null,
+addr_code varchar(10) not null,
+addr varchar(50) not null,
+addr_detail varchar(30) not null,
+reg_date date not null
+);
+
+desc member;
+
+id			아이디
+pw			비밀번호
+name		성명
+email		이메일
+tel			전화번호
+addr_code 	우편번호
+addr		주소
+addr_detail	상세주소
+reg_date 	가입일
+--------------------------------
+
+drop table board;
+
+create table board(
+num int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(40) not null,
+content text not null,
+pw varchar(15) not null,
+reg_date datetime,
+read_count int default 0,
+re_group int not null,
+re_step int not null,
+re_depth int not null,
+ip varchar(20) not null
+);
+
+desc board;
+
+num			번호
+writer		작성자
+subject		제목
+content		내용
+pw			비밀번호
+reg_date	작성일
+hit			조회수
+re_group	글 그룹(숫자)
+re_step		글 순서(숫자)
+re_depth	글 깊이
+ip			아이피
+
+

@@ -1,11 +1,10 @@
-package co.kr.Hello;
+package com.mvc.pj.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.ibatis.session.SqlSession;//Mybatis
 import java.util.*;//HashMap
-import co.kr.Hello.dto.MemberDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -13,6 +12,9 @@ import javax.naming.NamingException;
 
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.mvc.pj.domain.MemberDTO;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller

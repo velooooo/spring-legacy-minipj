@@ -1,9 +1,10 @@
-package co.kr.Hello.dto;
+package com.mvc.pj.domain;
 import java.util.Date;
 //모델빈
 public class MemberDTO {
-	//전역변수=필드=프로퍼티=property
+	//전역변수:필드:프로퍼티:property
 	
+	private int num;
 	private String id;
 	private String pw;
 	private String name;
@@ -11,12 +12,20 @@ public class MemberDTO {
 	private String email;
 	private String tel;
 	
-	private String zipcode;
+	private String addr_code;
 	private String addr;
-	private String addr2;
-	private Date regdate;
+	private String addr_detail;
+	private Date reg_date;
 	
 	public MemberDTO() {}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
 
 	public String getId() {
 		return id;
@@ -58,12 +67,12 @@ public class MemberDTO {
 		this.tel = tel;
 	}
 
-	public String getZipcode() {
-		return zipcode;
+	public String getAddr_code() {
+		return addr_code;
 	}
 
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
+	public void setAddr_code(String addr_code) {
+		this.addr_code = addr_code;
 	}
 
 	public String getAddr() {
@@ -74,21 +83,22 @@ public class MemberDTO {
 		this.addr = addr;
 	}
 
-	public String getAddr2() {
-		return addr2;
+	public String getAddr_detail() {
+		return addr_detail;
 	}
 
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
+	public void setAddr_detail(String addr_detail) {
+		this.addr_detail = addr_detail;
 	}
 
-	public Date getRegdate() {
-		return regdate;
+	public Date getReg_date() {
+		return reg_date;
 	}
 
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
 	}
 
+	
 	
 }
