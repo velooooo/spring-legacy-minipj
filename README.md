@@ -8,23 +8,39 @@
 - 게시판, 회원관리 ( https://wasupup.tistory.com/267 )
 
 ### dir
-#### sts-work-final ( 2021-08-00 )
+#### sts_work_home ( 2021-08-00 )
 
-
-#### sts-work3 ( 2021-08-06 )
+#### sts_work3 ( 2021-08-06 )
 - board.xml
 - BoardController.java
 - views/board/*.jsp
 
-#### sts-work3 ( 2021-08-05 )
+#### sts_work3 ( 2021-08-05 )
+##### java (board)
 - co.kr.Hello.dto.BoardDTO.java
+##### xml (board)
 - board.xml
 - mybatis-config.xml
 
-#### sts-work2 ( 2021-08-05 )
+#### sts_work2 ( 2021-08-05 )
+##### java (member)
 - MemberController.java 수정
+##### jsp (member)
 - views/member/*.jsp
 
-#### sts-work1 ( 2021-08-04 )
-- 
+#### sts_work1 ( 2021-08-04 )
+##### xml (member)
+- pom.xml
+- web.xml
+- root-context.xml
+- mybatis-config.xml
+- member.xml
+##### java (member)
+- MemerDTO.java
+- MemberController.java
+- MemberController.java
+##### jsp (member)
+- main.jsp
+- confirmID.jsp
+- insertForm.jsp
 
