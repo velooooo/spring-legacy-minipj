@@ -6,14 +6,13 @@
 - tomcat8.0
 - mysql 5.5
 - java version 1.8.0_40
-- myBatis 3.2.8
 - sts3
 - jdbc 3.2.3
+- myBatis 3.2.8
 ### 개발언어
 - java, spring, jsp
 - jsjq
 - html5, css3
-- mybatis 
 
 # dir
 ## sts_work_home ( 2021-08-00 )
