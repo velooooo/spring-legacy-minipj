@@ -1,0 +1,63 @@
+sts+myBatis+MySQL
+회원가입
+
+새프로젝트
+co.kr.Hello
+
+◆pom.xml  : 라이브러리 
+   
+  web.xml 인코딩
+
+  컨트롤러 
+  org.springframework.web.servlet.DispatcherServlet
+
+◆ 실행
+==============================
+
+◆ root-context.xml  : back-end부분 설정 
+
+DTO,VO : 모델빈
+◆src/main/java/
+co.kr.Hello.dto.MemberDTO.java  
+
+DAO : 비니지스 로직 
+◆src/main/resources/ mybatis /mybatis-config.xml
+◆src/main/resources/ mybatis /member.xml
+코드입력
+
+컨트롤러 
+◆ co.kr.Hello.MemberController.java
+
+◆ views
+       main.jsp
+       member 폴더
+           confirmID.jsp  id중복체크
+           insertForm.jsp  : 회원가입
+           .............
+회원관리 시스템 끝====
+
+------------------
+게시판
+------------------
+◆src/main/java/
+co.kr.Hello.dto.BoardDTO.java  
+
+
+board.xml
+mybatis-config.xml : 여기에 board.xml를 등록 
+
+BoardController.java
+
+views/board/*.jsp
+-------------------------------------
+
+<!-- 답글 끼워넣기 위치 확보  -->
+    <update id="reStep" parameterType="co.kr.Hello.dto.BoardDTO">
+      update board set re_step=re_step+1
+      where ref=#{ref} and re_step>#{re_step}
+    </update>
+-----------------------------------
+ num   ref   글제목  re_step 
+
+
+    

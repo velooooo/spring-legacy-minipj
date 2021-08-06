@@ -1,0 +1,114 @@
+ sts
+회원가입
+게시판
+
+DB이름 : ch20 사용
+
+use ch20;
+
+drop table member;
+
+create table member(
+id varchar(20) not null primary key,
+pw varchar(15) not null,
+name varchar(30) not null,
+email varchar(30) not null,
+tel     varchar(14) not null,
+zipcode varchar(10) not null,
+addr varchar(50) not null,
+addr2 varchar(30) not null,
+regdate date not null
+);  
+ 
+======================
+게시판
+ 
+DB작업
+use ch20;
+
+num : 글번호(숫자)  p.k auto_increment
+writer :글쓴이(문자열)
+subject :글제목(문자열)
+
+pw   :암호(문자열)
+regdate : 등록 날짜
+
+readcount : 조횟수(숫자 default 0을 한다 )
+ref  : 글 그룹(숫자)
+re_step : 글순서(원글, 답글 순서 처리 )(숫자)
+re_level : 글 깊이(답글 레벨, 들여쓰기)(숫자)
+
+content : 글내용(text)(문자열) 65535
+ip        :  아이피(문자열)
+
+--------------------------
+use ch20;
+
+drop table board;
+
+create table board(
+num int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(40) not null,
+pw varchar(15) not null,
+regdate datetime,
+readcount int default 0,
+ref int not null,
+re_step int not null,
+re_level int not null,
+content text not null,
+ip varchar(20) not null
+);
+
+desc board;
+
+--------------------------
+오라클
+--------------------------
+c:\>sqlplus scott/tiger
+drop table board;
+
+create table board(
+num number(4) not null primary key,
+writer varchar2(30) not null,
+subject varchar2(40) not null,
+pw varchar2(15) not null,
+regdate date,
+readcount number(4) default 0,
+ref number(4) not null,
+re_step number(4) not null,
+re_level number(4) not null,
+content varchar2(4000) not null,
+ip varchar2(20) not null
+);
+
+desc board;
+-------------------------
+
+drop sequence board_seq;
+
+create sequence board_seq;
+
+---------------------------
+
+src/mysqlboard.BoardDTO.java
+src/mysqlboard.BoardDAO.java
+
+
+WebContent
+    mysqlboard 폴더
+      writeForm.jsp  : 글쓰기 / 답글 쓰기
+      writePro.jsp
+
+      list.jsp
+
+      content.jsp => 글수정, 글삭제, 답글쓰기,새글쓰기,리스트
+ 
+      updatForm.jsp
+      updatePro.jsp
+
+      deleteForm.jsp
+      deletePro.jsp
+
+
+  
