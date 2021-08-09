@@ -19,37 +19,38 @@
 
 ## sts_work3 ( 2021-08-09 )
 - BoardController.java
-- views/board/*.jsp
+- views/board/writeForm.jsp
+- views/board/list.jsp
 
 ## sts_work3 ( 2021-08-06 )
 - board.xml
 - BoardController.java
 
 ## sts_work3 ( 2021-08-05 )
-### java (board)
+#### java (board)
 - co.kr.Hello.dto.BoardDTO.java
-### xml (board)
+#### xml (board)
 - board.xml
 - mybatis-config.xml
 
 ## sts_work2 ( 2021-08-05 )
-### java (member)
+#### java (member)
 - MemberController.java 수정
-### jsp (member)
+#### jsp (member)
 - views/member/*.jsp
 
 ## sts_work1 ( 2021-08-04 )
-### xml (member)
+#### xml (member)
 - pom.xml
 - web.xml
 - root-context.xml
 - mybatis-config.xml
 - member.xml
-### java (member)
+#### java (member)
 - MemerDTO.java
 - MemberController.java
 - MemberController.java
-### jsp (member)
+#### jsp (member)
 - main.jsp
 - confirmID.jsp
 - insertForm.jsp
