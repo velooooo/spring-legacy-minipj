@@ -17,10 +17,13 @@
 # dir
 ## sts_work_home ( 2021-08-00 )
 
+## sts_work3 ( 2021-08-09 )
+- BoardController.java
+- views/board/*.jsp
+
 ## sts_work3 ( 2021-08-06 )
 - board.xml
 - BoardController.java
-- views/board/*.jsp
 
 ## sts_work3 ( 2021-08-05 )
 ### java (board)
