@@ -2,14 +2,17 @@
 <!DOCTYPE configuration
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd" >
-
+<!-- root-context.xml -->
 <configuration>
 	<typeAliases>
-	  <typeAlias alias="member77" type="co.kr.Hello.dto.MemberDTO"/>
+		<!-- 별칭 -->
+		<typeAlias alias="member77" type="co.kr.Hello.dto.MemberDTO" />
+		<typeAlias alias="boardBasic" type="co.kr.Hello.dto.BoardDTO" />
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="/mybatis/member.xml"/>
+		<mapper resource="/mybatis/member.xml" />
+		<mapper resource="/mybatis/board.xml" />
 	</mappers>
-	
+
 </configuration>
