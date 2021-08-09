@@ -21,24 +21,22 @@
 - BoardController.java
 - views/board/writeForm.jsp
 - views/board/list.jsp
+- webapp/resources/imgs추가
 
 ## sts_work3 ( 2021-08-06 )
 - board.xml
 - BoardController.java
-
 ## sts_work3 ( 2021-08-05 )
 #### java (board)
 - co.kr.Hello.dto.BoardDTO.java
 #### xml (board)
 - board.xml
 - mybatis-config.xml
-
 ## sts_work2 ( 2021-08-05 )
 #### java (member)
 - MemberController.java 수정
 #### jsp (member)
 - views/member/*.jsp
-
 ## sts_work1 ( 2021-08-04 )
 #### xml (member)
 - pom.xml
