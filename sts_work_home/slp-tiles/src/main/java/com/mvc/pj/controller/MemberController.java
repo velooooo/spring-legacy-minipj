@@ -26,13 +26,13 @@ public class MemberController {
 	
 	@RequestMapping("main")
 	public String mm() {
-		return "main";//뷰 리턴  //views/main.jsp
+		return ".main.layout";//뷰 리턴  //views/main.jsp
 	}
 	
 	//회원가입폼
 	@RequestMapping("insertForm")
 	public String insertForm() {
-		return "/member/insertForm";//views/member/insertForm.jsp
+		return ".main.member.insertForm";//views/member/insertForm.jsp
 	}
 	
 	//id중복체크
@@ -47,7 +47,7 @@ public class MemberController {
 		}
 		
 		model.addAttribute("check",check);
-		return "member/confirmID";//뷰 리턴  confirmID.jsp
+		return ".main.member.confirmID";//뷰 리턴  confirmID.jsp
 	}
 	
 	//회원가입
@@ -67,13 +67,13 @@ public class MemberController {
 		memberDTO.setTel(tel);
 		
 		sqlSession.insert("member.insertMember",memberDTO);
- 		return "main";//뷰 리턴
+ 		return ".main.layout";//뷰 리턴
 	}
 	
 	//로그인 폼
 	@RequestMapping("loginForm")
 	public String loginForm() {
-		return "member/loginForm";//views/member/loginForm.jsp  뷰를 리턴 
+		return ".main.member.loginForm";//views/member/loginForm.jsp  뷰를 리턴 
 	}
 	
 	//로그인 처리 로직
@@ -88,18 +88,18 @@ public class MemberController {
 		
 		if(mdto==null) {//로그인 실패
 			model.addAttribute("msg","로그인실패");
-			return "/member/loginForm";//뷰 리턴 loginForm.jsp
+			return ".main.member.loginForm";//뷰 리턴 loginForm.jsp
 		}//if-end
 		
 		//로그인 성공
 		model.addAttribute("mdto",mdto);
-		return "member/loginSucess";//loginSucess.jsp 뷰리턴
+		return ".main.member.loginSucess";//loginSucess.jsp 뷰리턴
 	}
 	
 	//로그아웃
 	@RequestMapping("logOut")
 	public String logOut() {
-		return "/member/logOut";//뷰 리턴 logOut.jsp
+		return ".main.member.logOut";//뷰 리턴 logOut.jsp
 	}
 	
 	//내 정보 수정 폼*******
@@ -130,7 +130,7 @@ public class MemberController {
 		
 		model.addAttribute("mdto",mdto);
 		
-		return "/member/updateForm";//뷰리턴     updateForm.jsp
+		return ".main.member.updateForm";//뷰리턴     updateForm.jsp
 	}
 	
 	//내 정보 수정 DB처리 
@@ -151,7 +151,7 @@ public class MemberController {
 		
 		sqlSession.update("member.memberUpdate",memberDTO);
 		
-		return "main";//뷰 리턴
+		return ".main.layout";//뷰 리턴
 				 
 	}
 	
@@ -159,6 +159,6 @@ public class MemberController {
 	@RequestMapping("deleteMember")
 	public String deleteMember(String id) {
 		sqlSession.delete("member.memberDelete",id);
-		return "main";//뷰 리턴
+		return ".main.layout";//뷰 리턴
 	}
 }//class-end

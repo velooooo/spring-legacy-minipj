@@ -8,7 +8,7 @@
 <title>layout</title>
 </head>
 <body>
-<table board="1" style="width:100%;min-width:60%;">
+<table style="width:100%; min-width:60%;">
 	<tr>
 		<td colspan="2" height="50" bgcolor="cyan">
 			<tiles:insertAttribute name="header"></tiles:insertAttribute>

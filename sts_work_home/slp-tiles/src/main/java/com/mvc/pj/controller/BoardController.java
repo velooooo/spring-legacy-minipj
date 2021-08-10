@@ -37,7 +37,7 @@ public class BoardController {
 		model.addAttribute("re_step", new Integer(re_step));
 		model.addAttribute("re_depth", new Integer(re_depth));
 		//
-		return "board/writeForm";// View return writeForm.jsp
+		return ".main.board.writeForm";// View return writeForm.jsp
 	}// writeForm-end
 
 	// DB글 쓰기
@@ -120,7 +120,7 @@ public class BoardController {
 		model.addAttribute("number", number);// 글 번호
 		model.addAttribute("list", list);//
 
-		return "board/list"; // View return list.jsp
+		return ".main.board.list"; // View return list.jsp
 	}
 
 	// 글 내용 보기
@@ -140,7 +140,7 @@ public class BoardController {
 		model.addAttribute("num", num1);
 		model.addAttribute("bdto", bdto);
 
-		return "board/content"; // view return content.jsp
+		return ".main.board.content"; // view return content.jsp
 	}
 
 	// 수정 폼
@@ -152,7 +152,7 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("bdto", bdto);
-		mv.setViewName("board/updateForm");// updateForm.jsp
+		mv.setViewName(".main.board.updateForm");// updateForm.jsp
 
 		return mv;
 	}

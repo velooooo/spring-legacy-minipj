@@ -21,12 +21,12 @@
 	</tr>
 </table>
 <td align="right">
-	<a href="/memboard/list.do">게시판</a>
+	<a href="/pj/list">게시판</a>
 	<a href="">q&a</a>
 	<a href="">faq</a>
 	<a href="">공지사항</a>
-	<a href="/memboard/insertForm.do">회원가입</a>
-	<a href="/memboard/loginForm.do">로그인</a>
+	<a href="/pj/insertForm">회원가입</a>
+	<a href="/pj/loginForm">로그인</a>
 </td>
 </body>
 </html>
