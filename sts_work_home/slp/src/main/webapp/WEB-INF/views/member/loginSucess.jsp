@@ -21,7 +21,7 @@ function deleteMember(){
 	document.delForm.submit();//서버로 전송
 }
 </script>
-<h2>${mdto.name}님 저희 홈에 오신것을 환영합니다.</h2>
+<h2>${mdto.name}님 홈페이지 방문을 환영합니다.</h2>
 <%--session등록--%>
 <c:set var="id" value="${mdto.id}" scope="session"/>
 <a href="list">게시판 글 목록</a>

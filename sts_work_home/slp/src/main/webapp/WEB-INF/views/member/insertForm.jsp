@@ -12,7 +12,7 @@
 	function openDaumPostcode() {
 		new daum.Postcode({
 			oncomplete : function(data) {
-				document.getElementById('zipcode').value = data.zonecode;
+				document.getElementById('addr_code').value = data.zonecode;
 				document.getElementById('addr').value = data.address;
 			}
 		}).open();
@@ -29,20 +29,20 @@
 		}
 
 		if ($('#pw').val() == '') {
-			alert("암호를 입력 하시오");
+			alert("비밀번호를 입력 하시오");
 			$('#pw').focus();
 			return false;
 		}
 
 		if ($('#pw2').val() == '') {
-			alert("암호확인를 입력 하시오");
+			alert("비밀번호확인를 입력 하시오");
 			$('#pw2').focus();
 			return false;
 		}
 
-		//암호와 암호확인이 같은 비교
+		//비밀번호와 비밀번호확인이 같은 비교
 		if ($('#pw').val() != $('#pw2').val()) {
-			alert("암호와 암호확인이 다릅니다");
+			alert("비밀번호와 비밀번호확인이 다릅니다");
 			$('#pw').val('');//내용삭제
 			$('#pw2').val('');
 			$('#pw').focus();
@@ -105,18 +105,18 @@ table {
 		<table border="1">
 
 			<tr>
-				<td>ID</td>
+				<td>아이디</td>
 				<td><input type="text" name="id" id="id" size="20"> <input
 					type="button" value="ID중복체크" onclick="confirmIDCheck()"></td>
 			</tr>
 
 			<tr>
-				<td>암호</td>
+				<td>비밀번호</td>
 				<td><input type="password" name="pw" id="pw" size="10"></td>
 			</tr>
 
 			<tr>
-				<td>암호확인</td>
+				<td>비밀번호확인</td>
 				<td><input type="password" name="pw2" id="pw2" size="10"></td>
 			</tr>
 
@@ -149,7 +149,7 @@ table {
 			<!-- 우편번호 -->
 			<tr>
 				<td>우편번호</td>
-				<td><input type="text" name="zipcode" id="zipcode" size="7"
+				<td><input type="text" name="addr_code" id="addr_code" size="7"
 					readonly> <input type="button" value="주소검색"
 					onClick="openDaumPostcode()"></td>
 			</tr>
@@ -158,14 +158,15 @@ table {
 			<tr>
 				<td>주소</td>
 				<td><input type="text" name='addr' id="addr" size="60" readonly>
-					<br> 상세주소:<input type="text" name="addr2" id="addr2" size="40">
+					<br> 상세주소:<input type="text" name="addr_detail" id="addr_detail" size="40">
 				</td>
 			</tr>
 
 			<tr>
-				<td colspan="2"><input type="submit" value="회원가입"> <input
-					type="reset" value="다시입력"> <input type="button"
-					value="가입안함" onClick="location='main'"></td>
+				<td colspan="2">
+				<input type="submit" value="회원가입">
+				<input type="reset" value="다시입력">
+				<input type="button" value="취소" onClick="location='main'"></td>
 			</tr>
 		</table>
 	</form>

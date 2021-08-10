@@ -14,29 +14,19 @@
 	function openDaumPostcode() {
 		new daum.Postcode({
 			oncomplete : function(data) {
-				document.getElementById('zipcode').value = data.zonecode;
+				document.getElementById('addr_code').value = data.zonecode;
 				document.getElementById('addr').value = data.address;
 			}
 		}).open();
 	}//openDaumPostcode()---
 </script>
-<style>
-h2 {
-	text-align: center;
-}
-
-table {
-	margin: auto;
-	padding: 4px;
-}
-</style>
 </head>
 <body>
 	<h2>내정보수정</h2>
 	<form name="upForm" method="post" action="memUpdatePro">
 		<table>
 			<tr>
-				<td>ID</td>
+				<td>아이디</td>
 				<td><b>${mdto.id}</b> <input type="hidden" name="id" value="${mdto.id}" size="20"></td>
 			</tr>
 			<tr>
@@ -79,7 +69,7 @@ table {
 			<!-- 우편번호 -->
 			<tr>
 				<td>우편번호</td>
-				<td><input type="text" name="zipcode" id="zipcode" size="7" value="${mdto.zipcode}"
+				<td><input type="text" name="addr_code" id="addr_code" size="7" value="${mdto.addr_code}"
 					readonly> <input type="button" value="주소검색"
 					onClick="openDaumPostcode()"></td>
 			</tr>
@@ -88,7 +78,7 @@ table {
 			<tr>
 				<td>주소</td>
 				<td><input type="text" name='addr' id="addr" size="60" value="${mdto.addr}" readonly>
-					<br> 상세주소:<input type="text" name="addr2" id="addr2" size="40" value="${mdto.addr2}">
+					<br> 상세주소:<input type="text" name="addr_detail" id="addr_detail" size="40" value="${mdto.addr_detail}">
 				</td>
 			</tr>
 
@@ -99,11 +89,8 @@ table {
 					<input type="button" value="취소" onClick="location='main'"></td>
 			</tr>
 		</table>
-
 	</form>
-	
 <script>
-
 function pwCheck(){
 	if(document.upForm.pw.value!=document.upForm.pw2.value){
 		alert("비밀번호가 다릅니다.");
@@ -111,7 +98,6 @@ function pwCheck(){
 		return false;
 	}
 }
-
 </script>
 </body>
 </html>

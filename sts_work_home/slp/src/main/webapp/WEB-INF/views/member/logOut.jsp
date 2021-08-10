@@ -13,9 +13,6 @@
 <body>
 	<%--세션 무효화 --%>
 	<c:remove var="id" scope="session" />
-	
 	Bye
-
-
 </body>
 </html>

@@ -48,16 +48,14 @@ ip varchar(20) not null
 
 desc board;
 
-num			번호
-writer		작성자
-subject		제목
-content		내용
-pw			비밀번호
-reg_date	작성일
-hit			조회수
-re_group	글 그룹(숫자)
-re_step		글 순서(숫자)
-re_depth	글 깊이
-ip			아이피
-
-
+-- num			번호
+-- writer		작성자
+-- subject		제목
+-- content		내용
+-- pw			비밀번호
+-- reg_date		작성일
+-- hit			조회수
+-- re_group		글 그룹(숫자)
+-- re_step		글 순서(숫자)
+-- re_depth		글 깊이
+-- ip			아이피
