@@ -1,5 +1,9 @@
 # spring-legacy-minipj - STS3) Spring Legacy MiNi Project
-- 게시판, 회원관리 ( https://wasupup.tistory.com/267 )
+## posting
+- member ( https://wasupup.tistory.com/267 )
+- member ( https://wasupup.tistory.com/267 )
+- member ( https://wasupup.tistory.com/267 )
+- member ( https://wasupup.tistory.com/267 )
 ## ver
 ### 개발환경
 - window10
