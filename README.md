@@ -4,6 +4,7 @@
 - member view ( https://wasupup.tistory.com/273 )
 - board java ( https://wasupup.tistory.com/294 )
 - board view ( https://wasupup.tistory.com/306 )
+- memboard tiles ( https://wasupup.tistory.com/313 )
 ## ver
 ### 개발환경
 - window10
