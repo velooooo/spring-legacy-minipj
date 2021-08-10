@@ -1,9 +1,9 @@
 # spring-legacy-minipj - STS3) Spring Legacy MiNi Project
 ## posting
-- member ( https://wasupup.tistory.com/267 )
-- member ( https://wasupup.tistory.com/267 )
-- member ( https://wasupup.tistory.com/267 )
-- member ( https://wasupup.tistory.com/267 )
+- member java ( https://wasupup.tistory.com/267 )
+- member view ( https://wasupup.tistory.com/273 )
+- board java ( https://wasupup.tistory.com/294 )
+- board view ( https://wasupup.tistory.com/306 )
 ## ver
 ### 개발환경
 - window10
