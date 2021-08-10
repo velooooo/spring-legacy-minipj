@@ -25,7 +25,7 @@
 - BoardController.java(오타수정)
 - views/board/list.jsp(이어서작업)
 - views/board/content.jsp
--
+- views/board/updateForm.jsp
 ## sts_work2_2 ( 2021-08-09 )
 - BoardController.java
 - views/board/writeForm.jsp
