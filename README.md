@@ -20,34 +20,35 @@
 - html5, css3
 
 # dir
-## sts_work_home ( 2021-08-00 )
+## sts_work_home
+### sts_work2_3 : tiles 적용 중 오류사항 해결 중 ( 2021-08-00 )
 
-## sts_work2_3 ( 2021-08-10 )
+### sts_work2_3 ( 2021-08-10 )
 - BoardController.java(오타수정)
 - views/board/list.jsp(이어서작업)
 - views/board/content.jsp
 - views/board/updateForm.jsp
 - tiles 적용 
-## sts_work2_2 ( 2021-08-09 )
+### sts_work2_2 ( 2021-08-09 )
 - BoardController.java
 - views/board/writeForm.jsp
 - views/board/list.jsp
 - webapp/resources/imgs추가
-## sts_work2 ( 2021-08-06 )
+### sts_work2 ( 2021-08-06 )
 - board.xml
 - BoardController.java
-## sts_work2 ( 2021-08-05 )
+### sts_work2 ( 2021-08-05 )
 #### java (board)
 - co.kr.Hello.dto.BoardDTO.java
 #### xml (board)
 - board.xml
 - mybatis-config.xml
-## sts_work1_2 ( 2021-08-05 )
+### sts_work1_2 ( 2021-08-05 )
 #### java (member)
 - MemberController.java 수정
 #### jsp (member)
 - views/member/*.jsp
-## sts_work1 ( 2021-08-04 )
+### sts_work1 ( 2021-08-04 )
 #### xml (member)
 - pom.xml
 - web.xml
