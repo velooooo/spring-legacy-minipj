@@ -21,7 +21,7 @@
 # dir
 ## sts_work_home ( 2021-08-00 )
 
-## sts_work2_2 ( 2021-08-10 )
+## sts_work2_3 ( 2021-08-10 )
 - BoardController.java(오타수정)
 - views/board/list.jsp(이어서작업)
 - views/board/content.jsp
