@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>header</title>
+</head>
+<body>
+<h2 align="center">
+	<table>
+		<tr>
+			<td align="left">
+				<a href="/tilestest/" style="text-decoration:none;">홈으로가기</a>
+			</td>
+		</tr>
+	</table>
+</h2>
+</body>
+</html>
