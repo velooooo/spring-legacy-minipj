@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="tilestest"/>
+<aop-project name="Hello"/>
+<aop-project name="oracleboard"/>
+<aop-project name="memboard"/>
+</aop-reference-model>

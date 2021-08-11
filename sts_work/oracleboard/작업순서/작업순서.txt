@@ -1,0 +1,17 @@
+진행 순서
+
+1. web.xml : 인코딩 추가
+
+2. 라이브러리 추가 : pom.xml
+
+3. root-context.xml : oracle, mybatis 관련 빈 등록
+
+--여기까지 환경--
+
+4. DTO.java생성
+
+5. 관련 .xml 파일 생성
+
+6. 관련 Controller.java 생성
+
+7. 관련 views 생성

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;board.xml&apos; to &apos;oracleboard/src/main/resources/mybatis&apos;&#x0D;&#x0A;- Original project: &apos;memboard&apos;&#x0D;&#x0A;- Destination element: &apos;oracleboard/src/main/resources/mybatis&apos;&#x0D;&#x0A;- Original element: &apos;board.xml&apos;" description="Copy file" destination="=oracleboard/src\/main\/resources&lt;mybatis" element1="src/main/resources/mybatis/board.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1628672054969" units="0" version="1.0"/>
+</session>

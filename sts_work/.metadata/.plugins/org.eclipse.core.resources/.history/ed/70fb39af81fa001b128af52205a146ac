@@ -1,0 +1,5 @@
+package co.kr.oracleboard.dto;
+
+public class BoardDTO {
+
+}
