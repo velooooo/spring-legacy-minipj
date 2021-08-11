@@ -21,14 +21,20 @@
 
 # dir
 ## sts_work_home
-### sts_work2_3 : tiles 적용 중 오류사항 해결 중 ( 2021-08-00 )
+### 2021-08-11
+- 레이아웃 수정 완료
+- 모든경로 수정 완료
+- update가 제대로 이루어지지 않는 문제 해결
 
+### sts_work (2021-08-11)
+- 새로만든 sts_work폴더를 원본 통합폴더로 지정
+- 기존 sts_work1~2파일들은 집파일로 저장
 ### sts_work2_3 ( 2021-08-10 )
 - BoardController.java(오타수정)
 - views/board/list.jsp(이어서작업)
 - views/board/content.jsp
 - views/board/updateForm.jsp
-- tiles 적용 
+- tiles 적용 적용 중 오류사항 해결 중
 ### sts_work2_2 ( 2021-08-09 )
 - BoardController.java
 - views/board/writeForm.jsp
