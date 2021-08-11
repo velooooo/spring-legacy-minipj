@@ -47,7 +47,7 @@ public class MemberController {
 		}
 		
 		model.addAttribute("check",check);
-		return ".main.member.confirmID";//뷰 리턴  confirmID.jsp
+		return "member/confirmID";//뷰 리턴  confirmID.jsp//json부분이라 바꿀필요없음
 	}
 	
 	//회원가입

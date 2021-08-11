@@ -74,7 +74,6 @@
 						$('#id').val('').focus();
 					}
 				}//success-end
-
 			});
 		}//else-end
 	}//cinfirmIDCheck()-end
