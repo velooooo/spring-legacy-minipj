@@ -52,8 +52,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- DB 글 수정 -->
 	<update id="updateDao" parameterType="com.mvc.pj.domain.BoardDTO">
 		update board set
-		writer=#{writer}, subject=#{subject}, content=#{content}, where
-		num=#{num} and pw=#{pw}
+		writer=#{writer}, subject=#{subject}, content=#{content}
+		where num=#{num} and pw=#{pw}
 	</update>
 
 	<!-- 글 삭제 -->
