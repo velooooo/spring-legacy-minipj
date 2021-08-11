@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mvc.pj.domain.BoardDTO;
 
+@Controller
 public class BoardController {
 	@Autowired
 	private SqlSession sqlSession;// 변수, setter 자동으로
@@ -73,11 +75,11 @@ public class BoardController {
 
 		sqlSession.insert("board.insertDao", boardDTO);
 
-		return "redirect:list";// redirect:list.jsp
+		return "redirect:basic-list";// redirect:list.jsp
 	}// writePro-end
 
 	// 리스트
-	@RequestMapping("list")
+	@RequestMapping("basic-list")
 	public String listBoard(Model model, String pageNum) {
 		if (pageNum == null) {// 페이지 번호 없으면
 			pageNum = "1";
@@ -120,7 +122,7 @@ public class BoardController {
 		model.addAttribute("number", number);// 글 번호
 		model.addAttribute("list", list);//
 
-		return ".main.board.list"; // View return list.jsp
+		return ".main.board.basic-list"; // View return list.jsp
 	}
 
 	// 글 내용 보기
@@ -164,7 +166,7 @@ public class BoardController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNum", pageNum);
-		mv.setViewName("refirect:list");//
+		mv.setViewName("refirect:basic-list");//
 
 		return mv;
 	}
@@ -175,6 +177,6 @@ public class BoardController {
 		sqlSession.delete("board.deleteDao", new Integer(num));
 		
 		model.addAttribute("pageNum", pageNum);
-		return "redirect:list";
+		return "redirect:basic-list";
 	}
 }

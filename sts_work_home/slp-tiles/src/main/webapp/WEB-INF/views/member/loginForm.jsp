@@ -2,24 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--loginForm--%>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<style type="text/css">
-table {
-	margin: auto;
-	background-color: #fcfcfc;
-}
-
-h2 {
-	text-align: center;
-}
-</style>
 	<script>
 		function check() {
 			if (document.loginFrom.id.value == "") {
@@ -62,5 +44,3 @@ h2 {
 			</tr>
 		</table>
 	</form>
-</body>
-</html>

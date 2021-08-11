@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>writeForm</title>
-<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 function check(){
 	if($('#writer').val()==''){
@@ -32,9 +26,6 @@ function check(){
 	return true
 }
 </script>
-<style src="/css/common.css"></style>
-</head>
-<body>
 <c:if test="${num==0}"><!-- 글번호가 없으면 첫 번째 글이므로 일반 글쓰기 -->
 	<h2>게시판 글쓰기</h2>
 </c:if>
@@ -86,10 +77,8 @@ function check(){
 				</c:if>
 				
 				<input type="reset" value="다시쓰기"/>
-				<input type="button" value="글목록" onClick="location.href='list'"/>
+				<input type="button" value="글목록" onClick="location.href='basic-list'"/>
 			</td>
 		</tr>
 	</table>
 </form>
-</body>
-</html>

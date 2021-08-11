@@ -1,29 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>header</title>
-</head>
-<body>
-<h2 align="center"></h2>
-<table boarder="0" style="width:100%;min-width:60%">
-	<tr>
-		<td align="left">
-			<a href="/pj/" style="text-decoration:none;">
-				<img src="resources/imgs/logo.png" alt="로고"/>
-			</a>
-		</td>
-	</tr>
-</table>
-<td align="right">
-	<a href="/pj/list">게시판</a>
-	<a href="">q&a</a>
-	<a href="">faq</a>
-	<a href="">공지사항</a>
-	<a href="/pj/insertForm">회원가입</a>
-	<a href="/pj/loginForm">로그인</a>
-</td>
-</body>
-</html>
+<div class="inner_wrap clear">
+        <ul class="gnb_top_ul clear">
+            <li class="gnb_top_li">
+                <a href="/join" class="gnb_top_a">join</a>
+            </li>
+            <li class="gnb_top_li">
+                <a href="/login" class="gnb_top_a">login</a>
+            </li>
+            <li class="gnb_top_li">
+                <a href="/logout" class="gnb_top_a">logout</a>
+            </li>
+            <li class="gnb_top_li">
+                <a href="/mypage" class="gnb_top_a">mypage</a>
+            </li>
+        </ul>
+        <nav class="gnb clear">
+            <h1 class="logo">
+                <a href="/" class="logo_link">
+                    <img src="resources/imgs/logo.png" alt="logo">
+                </a>
+            </h1>
+            <ul class="gnb_ul clear">
+                <li class="gnb_li">
+                    <a href="/basic-list" class="gnb_a">
+                        일반 게시판1
+                    </a>
+                </li>
+                <li class="gnb_li">
+                    <a href="/gal-list" class="gnb_a">
+                        갤러리 게시판1
+                    </a>
+                </li>
+                <li class="gnb_li">
+                    <a href="/notice-list" class="gnb_a">
+                        공지사항
+                    </a>
+                </li>
+                <li class="gnb_li">
+                    <a href="/qna-list" class="gnb_a">
+                        Q&A
+                    </a>
+                </li>
+                <li class="gnb_li">
+                    <a href="/faq" class="gnb_a">
+                        FAQ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>

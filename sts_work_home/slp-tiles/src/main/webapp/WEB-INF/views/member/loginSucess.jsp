@@ -2,15 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--loginSucess--%>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
 <script>
 function updateMember(){
 	document.updateForm.action="memUpdateForm";//회원정보수정
@@ -35,6 +26,3 @@ function deleteMember(){
 <form name="delForm" method="post">
 	<input type="hidden" name="id" value="${id}"/>
 </form>
-
-</body>
-</html>

@@ -2,13 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>content</title>
-</head>
-<body>
 <h2>글내용 보기</h2>
 <table>
 	<tr>
@@ -43,9 +36,7 @@
 			
 			<input type="button" value="답글쓰기" onClick="location.href='writeForm?num=${num}&pageNum=${pageNum}&ref=${bdto.ref}&re_step=${bdto.re_step}&re_level=${bdto.re_level}'"/>
 			
-			<input type="button" value="글목록" onClick="location.href='list?pageNum=${pageNum}'"/>
+			<input type="button" value="글목록" onClick="location.href='basic-list?pageNum=${pageNum}'"/>
 		</td>
 	</tr>
 </table>
-</body>
-</html>

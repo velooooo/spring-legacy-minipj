@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 	function openDaumPostcode() {
@@ -86,19 +79,6 @@
 		}//else-end
 	}//cinfirmIDCheck()-end
 </script>
-
-<style type="text/css">
-h2 {
-	text-align: center;
-}
-
-table {
-	margin: auto;
-	background-color: ivoy;
-}
-</style>
-</head>
-<body>
 	<h2>회원가입</h2>
 	<form method="post" action="insertPro" onSubmit="return check()">
 
@@ -170,5 +150,3 @@ table {
 			</tr>
 		</table>
 	</form>
-</body>
-</html>

@@ -3,13 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%-- <jsp:include page="../inc/head.jsp"/> --%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>list</title>
-</head>
-<body>
 <h2>글목록(전체)</h2>
 <table width="80%">
 	<tr>
@@ -83,20 +76,18 @@
 			
 			<!-- 이전 블럭 -->
 			<c:if test="${startPage>10}">
-				<a href="list?pageNum=${startPage-10}">이전블럭</a>
+				<a href="basic-list?pageNum=${startPage-10}">이전블럭</a>
 			</c:if>
 			
 			<!-- 페이지처리 -->
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="list?pageNum=${i}">[${i}]</a>
+				<a href="basic-list?pageNum=${i}">[${i}]</a>
 			</c:forEach>
 			
 			<!-- 다음 블럭 -->
 			<c:if test="${endPage<pageCount}">
-				<a href="list?pageNum=${startPage+10}">다음블럭</a>
+				<a href="basic-list?pageNum=${startPage+10}">다음블럭</a>
 			</c:if>
 		</td>
 	</tr>
 </table>
-</body>
-</html>

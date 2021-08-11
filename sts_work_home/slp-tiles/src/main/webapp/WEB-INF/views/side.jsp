@@ -1,17 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>side</title>
-</head>
-<body>
-	<a href="/pj/list">게시판</a><br/>
-	<a href="">q&a</a><br/>
-	<a href="">faq</a><br/>
-	<a href="">공지사항</a><br/>
-	<a href="/pj/insertForm">회원가입</a><br/>
-	<a href="/pj/loginForm">로그인</a>
-</body>
-</html>
+<ul class="aside_ul">
+            <li class="aside_li">
+                <a href="/basic-list" class="aside_a">
+                    일반 게시판1
+                </a>
+            </li>
+            <li class="aside_li">
+                <a href="/gal-list" class="aside_a">
+                    갤러리 게시판1
+                </a>
+            </li>
+            <li class="aside_li">
+                <a href="/notice-list" class="aside_a">
+                    공지사항
+                </a>
+            </li>
+            <li class="aside_li">
+                <a href="/qna-list" class="aside_a">
+                    Q&A
+                </a>
+            </li>
+            <li class="aside_li">
+                <a href="/faq" class="aside_a">
+                    FAQ
+                </a>
+            </li>
+        </ul>
