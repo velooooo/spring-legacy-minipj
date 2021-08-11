@@ -81,7 +81,7 @@
 	<h2>회원가입</h2>
 	<form method="post" action="insertPro" onSubmit="return check()">
 
-		<table border="1">
+		<table>
 
 			<tr>
 				<td>아이디</td>

@@ -4,16 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%-- <jsp:include page="../inc/head.jsp"/> --%>
 <h2>글목록(전체 ${count}글)</h2>
-<table width="80%">
-	<tr>
-		<td align="right">
-			<a href="writeForm">글쓰기</a>
-		</td>
-	</tr>
-</table>
-<!-- 글이 있으면 -->
-<c:if test="${count!=0}">
-	<table width="80%">
+<div class="btn-box clear">
+	<a class="btn-item" href="writeForm">글쓰기</a>
+</div>
+<table>
+	<thead>
 		<tr>
 			<td>글번호</td>
 			<td>제목</td>
@@ -22,6 +17,10 @@
 			<td>조회수</td>
 			<td>ip</td>
 		</tr>
+	</thead>
+	<!-- 글이 있으면 -->
+	<c:if test="${count!=0}">
+	<tbody>
 		<c:forEach var="dto" items="${list}">
 		<tr>
 			<td>
@@ -58,14 +57,22 @@
 			<td>${dto.ip}</td>
 		</tr>
 		</c:forEach>
-	</table>
-</c:if>
-<!-- 글이 없으면 -->
-<c:if test="${count==0}">
-저장된 글이 없습니다.
-</c:if>
+	</tbody>
+	</c:if>
+	<!-- 글이 없으면 -->
+	<c:if test="${count==0}">
+	<tbody>
+		<tr>
+			<td colspan="6">
+			저장된 글이 없습니다.
+			</td>
+		</tr>
+	</tbody>
+	</c:if>
+</table>
+	
 <!-- 블럭, 페이징 처리 -->
-<table width="80%">
+<table>
 	<tr>
 		<td align="center">
 			<!-- 에러 방지 -->

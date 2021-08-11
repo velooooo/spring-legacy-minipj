@@ -16,7 +16,7 @@ textarea, select {font-family: 'NanumSquare', sans-serif, '맑은 고딕'; font-
 select {margin:0}
 p {margin:0;padding:0;word-break:break-all;line-height: 1.6em;}
 hr {display:none}
-pre {overflow-x:scroll;font-size:1.1em}
+pre {overflow-x:hidden;font-size:1.1em}
 a:link, a:visited {color:#000;text-decoration:none}
 a:hover, a:focus, a:active {color:#000;text-decoration:underline}
 button{ outline: none; border: none; cursor: pointer;}
@@ -50,7 +50,7 @@ input[type="submit"],input[type="button"],input[type="reset"] {cursor:pointer}
 /* 메인 본문영역 */
 aside{width: 200px;float: left;border-right: 1px solid #000;box-sizing: border-box;height: calc(100vh - 170px);}
 section{width: calc(100% - 200px);float: left;padding: 40px 20px;box-sizing: border-box;}
-article{width: auto;min-height: 200px;/* margin: 10px; */padding: 20px;box-sizing: border-box;}
+article{width: auto;min-height: 150px;/* margin: 10px; */padding: 20px;box-sizing: border-box;}
 .tit{ text-align: center;}
 
 /* slick-article */
@@ -80,3 +80,19 @@ article{width: auto;min-height: 200px;/* margin: 10px; */padding: 20px;box-sizin
 .accordion { background-color: #eee;color: #444; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px; transition: 0.4s;}
 .accordion-active, .accordion:hover { background-color: #ccc;}
 .accordion-panel { padding: 0 18px; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out;}
+
+/* table style */
+table{ min-width: 700px; width: 100%; max-width: 1200px; border: none;}
+.tit-board{ min-width: 700px; width: 100%; max-width: 1200px; text-align: left; font-size: 20px; line-height: 60px;}
+.con-info{ min-width: 700px; width: 100%; max-width: 1200px;}
+.con-info span{ display: block; line-height: 20px;}
+.con-info strong{ line-height: 20px;}
+.con-block{ font-size: 15px; line-height: 30px;}
+
+.btn-box{ min-width: 700px; width: 100%; max-width: 1200px;}
+.btn-box .btn-item{ background-color: #6db33f; border: none; color: #fff; font-size: 14px; padding: 4px 10px; float: right; margin: 0 2px; border-radius: 3px;}
+
+
+@media all and (max-width:900px) {
+	aside{ display: none;}
+}
