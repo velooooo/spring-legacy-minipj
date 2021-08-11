@@ -3,10 +3,10 @@
 <div class="inner_wrap clear">
         <ul class="gnb_top_ul clear">
             <li class="gnb_top_li">
-                <a href="/join" class="gnb_top_a">join</a>
+                <a href="/joinForm" class="gnb_top_a">join</a>
             </li>
             <li class="gnb_top_li">
-                <a href="/login" class="gnb_top_a">login</a>
+                <a href="/loginForm" class="gnb_top_a">login</a>
             </li>
             <li class="gnb_top_li">
                 <a href="/logout" class="gnb_top_a">logout</a>

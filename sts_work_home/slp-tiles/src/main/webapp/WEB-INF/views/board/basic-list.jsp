@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%-- <jsp:include page="../inc/head.jsp"/> --%>
-<h2>글목록(전체)</h2>
+<h2>글목록(전체 ${count}글)</h2>
 <table width="80%">
 	<tr>
 		<td align="right">
@@ -34,27 +34,27 @@
 			<td>
 				<!-- 답글이면 -->
 				<!-- 답글이면 이미지 넣는 방법 webapp/resources/imgs-->
-				<c:if test="${dto.re_level>0}"><!-- re_level이 0보다 크면 -->
-					<img src="resources/imgs/level.gif" width="${5*dto.re_level}" height="16" class="ico_level"/><!-- 레벨만큼 들어가게 -->
+				<c:if test="${dto.re_depth>0}"><!-- re_depth이 0보다 크면 -->
+					<img src="resources/imgs/level.gif" width="${5*dto.re_depth}" height="16" class="ico_level"/><!-- 레벨만큼 들어가게 -->
 					<img src="resources/imgs/re.gif" class="ico_re"/><!-- 답글표시 이미지 -->
 				</c:if>
 			
 				<!-- 원글이면 -->
-				<c:if test="${dto.re_level==0}">
-					<img src="resources/imgs/level.gif" width="${5*dto.re_level}" height="16" class="ico_level"/>
+				<c:if test="${dto.re_depth==0}">
+					<img src="resources/imgs/level.gif" width="${5*dto.re_depth}" height="16" class="ico_level"/>
 				</c:if>
 			
 				<!-- 글제목을 클릭하면 글내용보기로 이동 -->
 				<a href="content?num=${dto.num}&pageNum=${pageNum}" title="${dto.subject}">${dto.subject}</a>
 				
 				<!-- 조회수가 20회 이상이면 hot.gif표시 -->
-				<c:if test="${dto.readcount>=20}">
+				<c:if test="${dto.hit>=20}">
 					<img src="resources/imgs/hot.gif" class="ico_hot"/>
 				</c:if>
 			</td>
 			<td>${dto.writer}</td>
-			<td><fmt:formatDate value="${dto.regdate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
-			<td>${dto.readcount}</td>
+			<td><fmt:formatDate value="${dto.reg_date}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+			<td>${dto.hit}</td>
 			<td>${dto.ip}</td>
 		</tr>
 		</c:forEach>

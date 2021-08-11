@@ -17,7 +17,7 @@
 <script type="text/javascript" src="resources/js/slick.js"></script>
 <script type="text/javascript" src="resources/js/pages.js"></script>
 
-<link rel="shortcut icon" type="image/x-icon" href="/resources/imgs/favicon.ico?1"/>
+<link rel="shortcut icon" type="image/x-icon" href="resources/imgs/favicon.ico?1"/>
 <title>my community home</title>
 </head>
 <body>

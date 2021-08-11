@@ -15,10 +15,10 @@ function deleteMember(){
 <h2>${mdto.name}님 홈페이지 방문을 환영합니다.</h2>
 <%--session등록--%>
 <c:set var="id" value="${mdto.id}" scope="session"/>
-<a href="list">게시판 글 목록</a>
+<a href="basic-list">게시판 글 목록</a>
 <a href="javaScript:updateMember()">내정보 수정</a>
 <a href="javaScript:deleteMember()">회원탈퇴</a>
-<a href="logOut">로그아웃</a>
+<a href="logout">로그아웃</a>
 
 <form name="updateForm" method="post">
 	<input type="hidden" name="id" value="${id}"/>

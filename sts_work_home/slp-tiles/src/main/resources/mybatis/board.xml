@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="reStep" parameterType="com.mvc.pj.domain.BoardDTO">
 		update board set
 		re_step=re_step+1
-		where ref=#{ref} and re_step>#{re_step}
+		where re_group=#{re_group} and re_step>#{re_step}
 	</update>
 
 	<!-- 글 쓰기, 답글쓰기 insert -->

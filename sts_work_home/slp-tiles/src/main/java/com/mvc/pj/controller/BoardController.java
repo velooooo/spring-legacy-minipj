@@ -98,7 +98,7 @@ public class BoardController {
 		int number = count - (currentPage - 1) * pageSize;// 글 번호 (글이 37개인 경우, 37 36 35 : 역순으로 나옴)
 
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("start", startRow + 1);// 시작 번호
+		map.put("start", startRow - 1);// 시작 번호
 		map.put("cnt", pageSize);// 총 갯수
 
 		int pageCount = count / pageSize + (count % pageSize == 0 ? 0 : 1);// 총 페이지 수 구하기
@@ -166,7 +166,7 @@ public class BoardController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNum", pageNum);
-		mv.setViewName("refirect:basic-list");//
+		mv.setViewName("redirect:basic-list");//
 
 		return mv;
 	}

@@ -30,9 +30,9 @@ public class MemberController {
 	}
 	
 	//회원가입폼
-	@RequestMapping("insertForm")
-	public String insertForm() {
-		return ".main.member.insertForm";//views/member/insertForm.jsp
+	@RequestMapping("joinForm")
+	public String joinForm() {
+		return ".main.member.joinForm";//views/member/joinForm.jsp
 	}
 	
 	//id중복체크
@@ -97,9 +97,9 @@ public class MemberController {
 	}
 	
 	//로그아웃
-	@RequestMapping("logOut")
-	public String logOut() {
-		return ".main.member.logOut";//뷰 리턴 logOut.jsp
+	@RequestMapping("logout")
+	public String logout() {
+		return ".main.member.logout";//뷰 리턴 logout.jsp
 	}
 	
 	//내 정보 수정 폼*******

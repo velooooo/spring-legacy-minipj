@@ -35,9 +35,9 @@ function check(){
 <form method="post" action="writePro" onSubmit="return check()">
 	<input type="hidden" name="pageNum" value="${pageNum}">
 	<input type="hidden" name="num" value="${num}">
-	<input type="hidden" name="ref" value="${ref}">
+	<input type="hidden" name="re_group" value="${re_group}">
 	<input type="hidden" name="re_step" value="${re_step}">
-	<input type="hidden" name="re_level" value="${re_level}">
+	<input type="hidden" name="re_depth" value="${re_depth}">
 	
 	<table>
 		<tr>

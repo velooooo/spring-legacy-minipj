@@ -9,14 +9,14 @@
 		<td>${bdto.num}</td>
 		
 		<td>조회수</td>
-		<td>${bdto.readcount}</td>
+		<td>${bdto.hit}</td>
 	</tr>
 	<tr>
 		<td>이름</td>
 		<td>${bdto.writer}</td>
 		
 		<td>작성일</td>
-		<td><fmt:formatDate value="${bdto.regdate}" pattern="yyyy-MM-dd"/></td>
+		<td><fmt:formatDate value="${bdto.reg_date}" pattern="yyyy-MM-dd"/></td>
 	</tr>
 	<tr>
 		<td>글제목</td>
@@ -34,7 +34,7 @@
 			
 			<input type="button" value="새글쓰기" onClick="location.href='writeForm'"/>
 			
-			<input type="button" value="답글쓰기" onClick="location.href='writeForm?num=${num}&pageNum=${pageNum}&ref=${bdto.ref}&re_step=${bdto.re_step}&re_level=${bdto.re_level}'"/>
+			<input type="button" value="답글쓰기" onClick="location.href='writeForm?num=${num}&pageNum=${pageNum}&re_group=${bdto.re_group}&re_step=${bdto.re_step}&re_depth=${bdto.re_depth}'"/>
 			
 			<input type="button" value="글목록" onClick="location.href='basic-list?pageNum=${pageNum}'"/>
 		</td>

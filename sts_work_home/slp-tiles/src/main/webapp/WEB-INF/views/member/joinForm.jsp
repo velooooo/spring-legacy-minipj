@@ -86,18 +86,18 @@
 
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="id" id="id" size="20"> <input
+				<td><input type="text" name="id" id="id" maxlength="20"> <input
 					type="button" value="ID중복체크" onclick="confirmIDCheck()"></td>
 			</tr>
 
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="pw" id="pw" size="10"></td>
+				<td><input type="password" name="pw" id="pw" maxlength="10"></td>
 			</tr>
 
 			<tr>
 				<td>비밀번호확인</td>
-				<td><input type="password" name="pw2" id="pw2" size="10"></td>
+				<td><input type="password" name="pw2" id="pw2" maxlength="10"></td>
 			</tr>
 
 			<tr>
@@ -122,14 +122,14 @@
 						<option value="010">010</option>
 						<option value="017">017</option>
 						<option value="018">018</option>
-				</select> <input type="text" name="tel2" id="tel2" size="4"> <input
-					type="text" name="tel3" id="tel3" size="4"></td>
+				</select> <input type="text" name="tel2" id="tel2" maxlength="4"> <input
+					type="text" name="tel3" id="tel3" maxlength="4"></td>
 			</tr>
 
 			<!-- 우편번호 -->
 			<tr>
 				<td>우편번호</td>
-				<td><input type="text" name="addr_code" id="addr_code" size="7"
+				<td><input type="text" name="addr_code" id="addr_code" maxlength="7"
 					readonly> <input type="button" value="주소검색"
 					onClick="openDaumPostcode()"></td>
 			</tr>
