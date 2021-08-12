@@ -26,9 +26,14 @@
 - 모든경로 수정 완료
 - update가 제대로 이루어지지 않는 문제 해결
 
+
+
+### sts_work (2021-08-12)
+- oracleboard Controller수정, view파일 완료
 ### sts_work (2021-08-11)
 - 새로만든 sts_work폴더를 원본 통합폴더로 지정
 - 기존 sts_work1~2파일들은 집파일로 저장
+- oracleboard 프로젝트 추가 : 테이블생성, xml, controller 추가, view파일 일부 추가
 ### sts_work2_3 ( 2021-08-10 )
 - BoardController.java(오타수정)
 - views/board/list.jsp(이어서작업)
