@@ -3,40 +3,38 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <h2>글 수정 폼</h2>
 <form method="post" action="updatePro">
-	<table>
-		<tr>
-			<td>이름</td>
-			<td>
-				<input type="text" name="writer" value="${bdto.writer}"/>
+	<div class="form-box">
+		<div class="form-block">
+			<p><label for="writer">이름</label></p>
+			<p>
+				<input type="text" name="writer" id="writer" value="${bdto.writer}"/>
 				<input type="hidden" name="num" value="${bdto.num}"/>
-			</td>
-		</tr>
+			</p>
+		</div>
 		
-		<tr>
-			<td>글제목</td>
-			<td>
-				<input type="text" name="subject" value="${bdto.subject}" size="40"/>
-			</td>
-		</tr>
+		<div class="form-block">
+			<p><label for="subject">글제목</label></p>
+			<p>
+				<input type="text" name="subject" id="subject" value="${bdto.subject}" size="40"/>
+			</p>
+		</div>
 		
-		<tr>
-			<td>글내용</td>
-			<td>
-				<textarea name="content" rows="10" cols="60">${bdto.content}</textarea>
-			</td>
-		</tr>
+		<div class="form-block">
+			<p><label for="content">글내용</label></p>
+			<div>
+				<textarea name="content" id="content" rows="10" cols="60">${bdto.content}</textarea>
+			</div>
+		</div>
 		
-		<tr>
-			<td>암호</td>
-			<td><input type="password" name="pw" size="10"/></td>
-		</tr>
+		<div class="form-block">
+			<p><label for="pw">암호</label></p>
+			<p><input type="password" name="pw" id="pw" size="10"/></p>
+		</div>
 		
-		<tr>
-			<td colspan="2" align="center">
-				<input type="submit" value="글수정"/>
-				<input type="reset" value="다시쓰기"/>
-				<input type="button" value="글 목록" onclick="location.href='basic-list?pageNum=${pageNum}'"/>
-			</td>
-		</tr>
-	</table>
+		<div class="btn-box clear">
+			<input class="btn-item" type="submit" value="글수정"/>
+			<input class="btn-item" type="reset" value="다시쓰기"/>
+			<input class="btn-item" type="button" value="글 목록" onclick="location.href='basic-list?pageNum=${pageNum}'"/>
+		</div>
+	</div>
 </form>
