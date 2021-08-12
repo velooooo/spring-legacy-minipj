@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 		<!-- 별칭 -->
-		<typeAlias alias="boardBasic" type="co.kr.oracleboard.dto.BoardDTO" />
+		<typeAlias alias="board77" type="co.kr.oracleboard.dto.BoardDTO" />
 	</typeAliases>
 
 	<mappers>

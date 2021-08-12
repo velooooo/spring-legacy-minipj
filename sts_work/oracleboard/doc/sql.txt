@@ -1,0 +1,25 @@
+-- c:\>sqlplus scott
+-- Enter password:tiger
+-- c:\>sqlplus scott/tiger       scott계정(user계정)으로 오라클 접속
+
+-- 오라클 일련번호
+create sequence board_seq;
+-- 지울때는
+drop sequence board_seq;
+
+
+
+
+drop table board;
+
+create table board(
+bNum number(4) not null primary key,
+bName varchar2(30) not null,
+bTitle varchar2(50) not null,
+bContent varchar2(4000) not null,
+bDate date,
+bHit number(4),
+bGroup number(4),
+bStep number(4),
+bIndente number(4)
+);
