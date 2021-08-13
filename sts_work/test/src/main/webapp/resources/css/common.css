@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	overflow-y: scroll
+}
+
+body {
+	min-width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 0.875em;
+	font-family: 'NanumSquare', sans-serif, '맑은 고딕';
+}
+
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img {
+	margin: 0;
+	padding: 0;
+	border: 0
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 1em;
+	font-family: 'NanumSquare', sans-serif, '맑은 고딕';
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+legend {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999em;
+	overflow: hidden
+}
+
+label, input, button, select, img {
+	vertical-align: middle
+}
+
+input, button {
+	margin: 0;
+	padding: 0;
+	font-family: 'NanumSquare', sans-serif, '맑은 고딕';
+	font-size: 1em
+}
+
+button {
+	cursor: pointer
+}
+
+textarea, select {
+	font-family: 'NanumSquare', sans-serif, '맑은 고딕';
+	font-size: 1em
+}
+
+select {
+	margin: 0
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	word-break: break-all;
+	line-height: 1.6em;
+}
+
+hr {
+	display: none
+}
+
+pre {
+	overflow-x: scroll;
+	font-size: 1.1em
+}
+
+a:link, a:visited {
+	text-decoration: none
+}
+
+a:hover, a:focus, a:active {
+	text-decoration: underline
+}
+
+button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+img, fieldset {
+	border: 0;
+	outline: none;
+}
+
+li {
+	list-style: none;
+}
+
+img { /* width: 100%; */
+	border: 0;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+input[type="submit"], input[type="button"], input[type="reset"] {
+	cursor: pointer
+}
+
+/* 공통 영역 */
+.wrapper {
+	min-width: 320px;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 50px 20px;
+	box-sizing: border-box;
+}
+
+.form-box {
+	
+}
+
+.form-block {
+	
+}
+
+table {
+	width: 100%;
+	border-spacing: 0;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	line-height: 30px;
+}
+tr{
+}
+td{
+    border-bottom: 1px solid #ddd;
+    padding: 0 5px;
+}
+label {
+	
+}
+
+input {
+	
+}
+
+.btn-box {
+	width: 100%;
+}
+
+.btn-box:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.btn-item {
+	float: right;
+	margin: 4px;
+	padding: 4px 10px;
+	background-color: #51ab71;
+	color: #fff;
+	font-size: 15px;
+	border-radius: 3px;
+}
+
+.paging-box {
+	text-align: center;
+}
+
+.paging-item {
+	display: inline-block;
+	margin: 4px;
+	padding: 4px 10px;
+	border-radius: 3px;
+	background-color: #51ab71;
+	color: #fff;
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+.tit {
+	text-align: center;
+	font-size: 18px;
+	line-height: 50px;
+}
+.content-box{}
+.content-block{
+    font-size: 15px;
+    line-height: 30px;
+}
