@@ -27,7 +27,8 @@
 - update가 제대로 이루어지지 않는 문제 해결
 
 
-
+### sts_work (2021-08-13)
+- test project 추가
 ### sts_work (2021-08-12)
 - oracleboard Controller수정, view파일 완료
 ### sts_work (2021-08-11)
