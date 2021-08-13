@@ -26,15 +26,15 @@ function check(){
 	return true
 }
 </script>
-<c:if test="${num==0}"><!-- 글번호가 없으면 첫 번째 글이므로 일반 글쓰기 -->
+<c:if test="${no==0}"><!-- 글번호가 없으면 첫 번째 글이므로 일반 글쓰기 -->
 	<h2>게시판 글쓰기</h2>
 </c:if>
-<c:if test="${num!=0}"><!-- 글번호가 있으면 첫 번째 글이 아니므로 답글쓰기 -->
+<c:if test="${no!=0}"><!-- 글번호가 있으면 첫 번째 글이 아니므로 답글쓰기 -->
 	<h2>답글쓰기</h2>
 </c:if>
 <form method="post" action="writePro" onSubmit="return check()">
-	<input type="hidden" name="pageNum" value="${pageNum}">
-	<input type="hidden" name="num" value="${num}">
+	<input type="hidden" name="pageNo" value="${pageNo}">
+	<input type="hidden" name="no" value="${no}">
 	<input type="hidden" name="re_group" value="${re_group}">
 	<input type="hidden" name="re_step" value="${re_step}">
 	<input type="hidden" name="re_depth" value="${re_depth}">
@@ -48,11 +48,11 @@ function check(){
 			<p><label for="subject">글 제목</label></p>
 			<p>
 				<!-- 원글 -->
-				<c:if test="${num==0}">
+				<c:if test="${no==0}">
 					<input type="text" name="subject" id="subject" size="40"/>
 				</c:if>
 				<!-- 답글 -->
-				<c:if test="${num!=0}">
+				<c:if test="${no!=0}">
 					<input type="text" name="subject" id="subject" size="40" value="[답변]"/>
 				</c:if>
 			</p>
@@ -67,11 +67,11 @@ function check(){
 		</div>
 		<div class="btn-box clear">
 			<!-- 원글쓰기 -->
-			<c:if test="${num==0}">
+			<c:if test="${no==0}">
 				<input class="btn-item" type="submit" value="글쓰기"/>
 			</c:if>
 			<!-- 답글쓰기 -->
-			<c:if test="${num!=0}">
+			<c:if test="${no!=0}">
 				<input class="btn-item" type="submit" value="답글쓰기"/>
 			</c:if>
 			

@@ -24,7 +24,7 @@
 		<c:forEach var="dto" items="${list}">
 		<tr>
 			<td>
-				<!-- dto.num 수정할것 -->
+				<!-- dto.no 수정할것 -->
 				<c:out value="${number}"/>
 				<c:set var="number" value="${number-1}"/>
 				<!-- 역순을 위해 -1을 해줬는데 왜 역순으로 해야하는지 모르겠음. -->
@@ -44,7 +44,7 @@
 				</c:if>
 			
 				<!-- 글제목을 클릭하면 글내용보기로 이동 -->
-				<a href="content?num=${dto.num}&pageNum=${pageNum}" title="${dto.subject}">${dto.subject}</a>
+				<a href="content?no=${dto.no}&pageNo=${pageNo}" title="${dto.subject}">${dto.subject}</a>
 				
 				<!-- 조회수가 20회 이상이면 hot.gif표시 -->
 				<c:if test="${dto.hit>=20}">
@@ -52,7 +52,7 @@
 				</c:if>
 			</td>
 			<td>${dto.writer}</td>
-			<td><fmt:formatDate value="${dto.reg_date}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+			<td><fmt:formatDate value="${dto.wdate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 			<td>${dto.hit}</td>
 			<td>${dto.ip}</td>
 		</tr>
@@ -83,17 +83,17 @@
 			
 			<!-- 이전 블럭 -->
 			<c:if test="${startPage>10}">
-				<a href="basic-list?pageNum=${startPage-10}">이전블럭</a>
+				<a href="basic-list?pageNo=${startPage-10}">이전블럭</a>
 			</c:if>
 			
 			<!-- 페이지처리 -->
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="basic-list?pageNum=${i}">[${i}]</a>
+				<a href="basic-list?pageNo=${i}">[${i}]</a>
 			</c:forEach>
 			
 			<!-- 다음 블럭 -->
 			<c:if test="${endPage<pageCount}">
-				<a href="basic-list?pageNum=${startPage+10}">다음블럭</a>
+				<a href="basic-list?pageNo=${startPage+10}">다음블럭</a>
 			</c:if>
 		</td>
 	</tr>

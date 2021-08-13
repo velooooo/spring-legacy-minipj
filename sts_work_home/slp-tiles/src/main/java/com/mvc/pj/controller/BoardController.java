@@ -24,17 +24,17 @@ public class BoardController {
 
 	// 글쓰기 폼, 답글쓰기
 	@RequestMapping("writeForm")
-	public String writeForm(Model model, String num, String re_group, String re_step, String re_depth, String pageNum) {
+	public String writeForm(Model model, String no, String re_group, String re_step, String re_depth, String pageNo) {
 
-		if (num == null) {// num이 없으면 글 쓰기
-			num = "0"; // 글 번호
+		if (no == null) {// no이 없으면 글 쓰기
+			no = "0"; // 글 번호
 			re_group = "1"; // 글 그룹
 			re_step = "0"; // 글 순서
 			re_depth = "0";// 글 깊이
 		} // if-end
 			// 답글, 원글 모두 넣어줌.
-		model.addAttribute("pageNum", pageNum);
-		model.addAttribute("num", new Integer(num));
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("no", new Integer(no));
 		model.addAttribute("re_group", new Integer(re_group));
 		model.addAttribute("re_step", new Integer(re_step));
 		model.addAttribute("re_depth", new Integer(re_depth));
@@ -45,30 +45,30 @@ public class BoardController {
 	// DB글 쓰기
 	@RequestMapping(value = "writePro", method = RequestMethod.POST)
 	public String writePro(@ModelAttribute("boardDTO") BoardDTO boardDTO, HttpServletRequest request) {
-		int maxNum = 0;// 최대 글 번호 넣을 변수
+		int maxNo = 0;// 최대 글 번호 넣을 변수
 
-		if (sqlSession.selectOne("board.numMax") != null) {// 글번호가 있으면
+		if (sqlSession.selectOne("board.noMax") != null) {// 글번호가 있으면
 			// 글 번호가 있음 -> 글이 있음
-			maxNum = sqlSession.selectOne("board.numMax");// 최대 글번호 maxNum에 할당
+			maxNo = sqlSession.selectOne("board.noMax");// 최대 글번호 maxNo에 할당
 		}
 
-		if (maxNum != 0) {// 글이 이미 있으면
-			maxNum = maxNum + 1;// re_group 글 그룹에 넣음.
+		if (maxNo != 0) {// 글이 이미 있으면
+			maxNo = maxNo + 1;// re_group 글 그룹에 넣음.
 		} else {// 처음 글이면
-			maxNum = 1;// re_group 글 그룹에 1을 넣음.(1번 번호)
+			maxNo = 1;// re_group 글 그룹에 1을 넣음.(1번 번호)
 		}
 
 		String ip = request.getRemoteAddr();// ip얻기
 		boardDTO.setIp(ip);
 
 		// 원글, 답글
-		if (boardDTO.getNum() != 0) {// 답글이면
+		if (boardDTO.getNo() != 0) {// 답글이면
 			// 답글 끼워넣기 위치 확보
 			sqlSession.update("board.reStep", boardDTO);
 			boardDTO.setRe_step(boardDTO.getRe_step() + 1);// 글 순서 + 1
 			boardDTO.setRe_depth(boardDTO.getRe_depth() + 1);// 글 깊이 + 1
 		} else {// 원글이면
-			boardDTO.setRe_group(new Integer(maxNum));// 글 그룹
+			boardDTO.setRe_group(new Integer(maxNo));// 글 그룹
 			boardDTO.setRe_step(new Integer(0));// 글 순서
 			boardDTO.setRe_depth(new Integer(0));// 글 깊이
 		}
@@ -80,12 +80,12 @@ public class BoardController {
 
 	// 리스트
 	@RequestMapping("basic-list")
-	public String listBoard(Model model, String pageNum) {
-		if (pageNum == null) {// 페이지 번호 없으면
-			pageNum = "1";
+	public String listBoard(Model model, String pageNo) {
+		if (pageNo == null) {// 페이지 번호 없으면
+			pageNo = "1";
 		}
 		int pageSize = 10;// 페이지당 글 10개씩 보여줌
-		int currentPage = Integer.parseInt(pageNum);// 현재 페이지
+		int currentPage = Integer.parseInt(pageNo);// 현재 페이지
 
 		int startRow = (currentPage - 1) * pageSize + 1;// 페이지의 첫 번째 행 구함 : (현재페이지-1)*10+1
 		int endRow = currentPage * pageSize;// 페이지의 마지막 행
@@ -109,7 +109,7 @@ public class BoardController {
 		// --------------------------------------------------------------------
 		List<BoardDTO> list = sqlSession.selectList("board.listDao", map);
 
-		model.addAttribute("pageNum", pageNum);// 페이지번호
+		model.addAttribute("pageNo", pageNo);// 페이지번호
 		model.addAttribute("currentPage", currentPage);// 현재 페이지
 		model.addAttribute("startRow", startRow);// 페이지의 첫 번째 행
 		model.addAttribute("endRow", endRow);// 페이지의 마지막 행
@@ -127,19 +127,19 @@ public class BoardController {
 
 	// 글 내용 보기
 	@RequestMapping("content")
-	public String content(Model model, String num, String pageNum) {
+	public String content(Model model, String no, String pageNo) {
 
-		int num1 = Integer.parseInt(num);
-		sqlSession.update("board.readcountDao", num1);// 조회수증가
+		int no1 = Integer.parseInt(no);
+		sqlSession.update("board.readcountDao", no1);// 조회수증가
 
-		BoardDTO bdto = sqlSession.selectOne("board.getBoard", num1);
+		BoardDTO bdto = sqlSession.selectOne("board.getBoard", no1);
 
 		String content = bdto.getContent();
 		content = content.replace("\n", "<br/>");
 
 		model.addAttribute("content", content);
-		model.addAttribute("pageNum", pageNum);// 페이지번호
-		model.addAttribute("num", num1);
+		model.addAttribute("pageNo", pageNo);// 페이지번호
+		model.addAttribute("no", no1);
 		model.addAttribute("bdto", bdto);
 
 		return ".main.board.content"; // view return content.jsp
@@ -147,12 +147,12 @@ public class BoardController {
 
 	// 수정 폼
 	@RequestMapping("updateForm")
-	public ModelAndView updateForm(String num, String pageNum) {
-		int num1 = Integer.parseInt(num);
-		BoardDTO bdto = sqlSession.selectOne("board.getBoard", num1);
+	public ModelAndView updateForm(String no, String pageNo) {
+		int no1 = Integer.parseInt(no);
+		BoardDTO bdto = sqlSession.selectOne("board.getBoard", no1);
 
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("pageNum", pageNum);
+		mv.addObject("pageNo", pageNo);
 		mv.addObject("bdto", bdto);
 		mv.setViewName(".main.board.updateForm");// updateForm.jsp
 
@@ -161,11 +161,11 @@ public class BoardController {
 
 	// DB글 수정
 	@RequestMapping(value = "updatePro", method = RequestMethod.POST)
-	public ModelAndView updatePro(BoardDTO boardDTO, String pageNum) {
+	public ModelAndView updatePro(BoardDTO boardDTO, String pageNo) {
 		sqlSession.update("board.updateDao", boardDTO);
 
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("pageNum", pageNum);
+		mv.addObject("pageNo", pageNo);
 		mv.setViewName("redirect:basic-list");//
 
 		return mv;
@@ -173,10 +173,10 @@ public class BoardController {
 	
 	//글 삭제
 	@RequestMapping("delete")
-	public String delete(Model model, String num, String pageNum) {
-		sqlSession.delete("board.deleteDao", new Integer(num));
+	public String delete(Model model, String no, String pageNo) {
+		sqlSession.delete("board.deleteDao", new Integer(no));
 		
-		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("pageNo", pageNo);
 		return "redirect:basic-list";
 	}
 }

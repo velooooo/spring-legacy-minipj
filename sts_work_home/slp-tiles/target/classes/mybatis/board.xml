@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="board">
 
 	<!-- 최대 글번호 얻기 -->
-	<select id="numMax" resultType="Integer">
-		select max(num)
+	<select id="noMax" resultType="Integer">
+		select max(no)
 		from board
 	</select>
 
@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글 쓰기, 답글쓰기 insert -->
 	<insert id="insertDao" parameterType="boardBasic">
 		insert into board
-		(writer,subject, content, pw, reg_date, re_group, re_step, re_depth, ip)
+		(writer,subject, content, pw, wdate, re_group, re_step, re_depth, ip)
 		values(#{writer},#{subject},#{content},#{pw},NOW(),#{re_group},#{re_step},#{re_depth},#{ip})
 	</insert>
 
@@ -40,26 +40,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 조회수 증가 -->
 	<update id="readcountDao" parameterType="Integer">
 		update board set
-		hit=hit+1 where num=#{num}
+		hit=hit+1 where no=#{no}
 	</update>
 
 	<!-- 글내용 보기, 글 수정 폼 -->
 	<select id="getBoard" parameterType="Integer"
 		resultType="com.mvc.pj.domain.BoardDTO">
-		select * from board where num=#{num}
+		select * from board where no=#{no}
 	</select>
 
 	<!-- DB 글 수정 -->
 	<update id="updateDao" parameterType="com.mvc.pj.domain.BoardDTO">
 		update board set
 		writer=#{writer}, subject=#{subject}, content=#{content}
-		where num=#{num} and pw=#{pw}
+		where no=#{no} and pw=#{pw}
 	</update>
 
 	<!-- 글 삭제 -->
 	<delete id="deleteDao" parameterType="int">
 		delete from board where
-		num=#{num}
+		no=#{no}
 	</delete>
 
 </mapper>

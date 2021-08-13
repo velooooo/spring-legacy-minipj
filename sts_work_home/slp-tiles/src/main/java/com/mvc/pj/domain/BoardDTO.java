@@ -5,12 +5,12 @@ import java.sql.Date;
 public class BoardDTO {
 	//전역변수:필드:프로퍼티:property
 	
-	private int num;//번호
+	private int no;//번호
 	private String writer;//작성자
 	private String subject;//제목
 	private String content;//내용
 	private String pw;//비밀번호
-	private Date reg_date;//작성일
+	private Date wdate;//작성일
 	private int hit;//조회수
 	private int re_group;//글 그룹(숫자)
 	private int re_step;//글 순서(숫자)
@@ -19,12 +19,12 @@ public class BoardDTO {
 	
 	public BoardDTO() {}//기본생성자
 
-	public int getNum() {
-		return num;
+	public int getNo() {
+		return no;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getWriter() {
@@ -59,12 +59,12 @@ public class BoardDTO {
 		this.pw = pw;
 	}
 
-	public Date getReg_date() {
-		return reg_date;
+	public Date getWdate() {
+		return wdate;
 	}
 
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
+	public void setWdate(Date wdate) {
+		this.wdate = wdate;
 	}
 
 	public int getHit() {

@@ -8,7 +8,7 @@
 			<p><label for="writer">이름</label></p>
 			<p>
 				<input type="text" name="writer" id="writer" value="${bdto.writer}"/>
-				<input type="hidden" name="num" value="${bdto.num}"/>
+				<input type="hidden" name="no" value="${bdto.no}"/>
 			</p>
 		</div>
 		
@@ -34,7 +34,7 @@
 		<div class="btn-box clear">
 			<input class="btn-item" type="submit" value="글수정"/>
 			<input class="btn-item" type="reset" value="다시쓰기"/>
-			<input class="btn-item" type="button" value="글 목록" onclick="location.href='basic-list?pageNum=${pageNum}'"/>
+			<input class="btn-item" type="button" value="글 목록" onclick="location.href='basic-list?pageNo=${pageNo}'"/>
 		</div>
 	</div>
 </form>

@@ -4,7 +4,7 @@ import java.util.Date;
 public class MemberDTO {
 	//전역변수:필드:프로퍼티:property
 	
-	private int num;
+	private int no;
 	private String id;
 	private String pw;
 	private String name;
@@ -19,12 +19,12 @@ public class MemberDTO {
 	
 	public MemberDTO() {}
 
-	public int getNum() {
-		return num;
+	public int getNo() {
+		return no;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getId() {
