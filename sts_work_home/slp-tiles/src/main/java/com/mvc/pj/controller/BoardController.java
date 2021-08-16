@@ -23,7 +23,7 @@ public class BoardController {
 	private SqlSession sqlSession;// 변수, setter 자동으로
 
 	// 글쓰기 폼, 답글쓰기
-	@RequestMapping("writeForm")
+	@RequestMapping("/board/write")
 	public String writeForm(Model model, String no, String re_group, String re_step, String re_depth, String pageNo) {
 
 		if (no == null) {// no이 없으면 글 쓰기
@@ -39,11 +39,11 @@ public class BoardController {
 		model.addAttribute("re_step", new Integer(re_step));
 		model.addAttribute("re_depth", new Integer(re_depth));
 		//
-		return ".main.board.writeForm";// View return writeForm.jsp
+		return ".main.board.write";// View return writeForm.jsp
 	}// writeForm-end
 
 	// DB글 쓰기
-	@RequestMapping(value = "writePro", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/savePro", method = RequestMethod.POST)
 	public String writePro(@ModelAttribute("boardDTO") BoardDTO boardDTO, HttpServletRequest request) {
 		int maxNo = 0;// 최대 글 번호 넣을 변수
 
@@ -75,11 +75,11 @@ public class BoardController {
 
 		sqlSession.insert("board.insertDao", boardDTO);
 
-		return "redirect:basic-list";// redirect:list.jsp
+		return "redirect:/board/list";// redirect:list.jsp
 	}// writePro-end
 
 	// 리스트
-	@RequestMapping("basic-list")
+	@RequestMapping("/board/list")
 	public String listBoard(Model model, String pageNo) {
 		if (pageNo == null) {// 페이지 번호 없으면
 			pageNo = "1";
@@ -122,11 +122,11 @@ public class BoardController {
 		model.addAttribute("number", number);// 글 번호
 		model.addAttribute("list", list);//
 
-		return ".main.board.basic-list"; // View return list.jsp
+		return ".main.board.list"; // View return list.jsp
 	}
 
 	// 글 내용 보기
-	@RequestMapping("content")
+	@RequestMapping("/board/view")
 	public String content(Model model, String no, String pageNo) {
 
 		int no1 = Integer.parseInt(no);
@@ -142,11 +142,11 @@ public class BoardController {
 		model.addAttribute("no", no1);
 		model.addAttribute("bdto", bdto);
 
-		return ".main.board.content"; // view return content.jsp
+		return ".main.board.view"; // view return content.jsp
 	}
 
 	// 수정 폼
-	@RequestMapping("updateForm")
+	@RequestMapping("/board/edit")
 	public ModelAndView updateForm(String no, String pageNo) {
 		int no1 = Integer.parseInt(no);
 		BoardDTO bdto = sqlSession.selectOne("board.getBoard", no1);
@@ -154,29 +154,29 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNo", pageNo);
 		mv.addObject("bdto", bdto);
-		mv.setViewName(".main.board.updateForm");// updateForm.jsp
+		mv.setViewName(".main.board.edit");// updateForm.jsp
 
 		return mv;
 	}
 
 	// DB글 수정
-	@RequestMapping(value = "updatePro", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/updatePro", method = RequestMethod.POST)
 	public ModelAndView updatePro(BoardDTO boardDTO, String pageNo) {
 		sqlSession.update("board.updateDao", boardDTO);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNo", pageNo);
-		mv.setViewName("redirect:basic-list");//
+		mv.setViewName("redirect:/board/list");//
 
 		return mv;
 	}
 	
 	//글 삭제
-	@RequestMapping("delete")
+	@RequestMapping("/board/del")
 	public String delete(Model model, String no, String pageNo) {
 		sqlSession.delete("board.deleteDao", new Integer(no));
 		
 		model.addAttribute("pageNo", pageNo);
-		return "redirect:basic-list";
+		return "redirect:/board/list";
 	}
 }

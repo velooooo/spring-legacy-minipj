@@ -95,7 +95,7 @@ public class FaqController {
 	}
 
 	// ¼öÁ¤ Æû
-	@RequestMapping("/faq/update")
+	@RequestMapping("/faq/edit")
 	public ModelAndView updateForm(String no, String pageNo) {
 		int no1 = Integer.parseInt(no);
 		FaqDTO fdto = sqlSession.selectOne("faq.getFaq", no1);
@@ -103,7 +103,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNo", pageNo);
 		mv.addObject("fdto", fdto);
-		mv.setViewName(".main.faq.update");// updateForm.jsp
+		mv.setViewName(".main.faq.edit");// updateForm.jsp
 
 		return mv;
 	}

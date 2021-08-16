@@ -11,7 +11,7 @@ public class MypageController {
 	private SqlSession sqlSession;//변수
 	
 	
-	@RequestMapping("mypage")
+	@RequestMapping("member/mypage")
 	public String mm() {
 		return ".main.member.mypage";//뷰 리턴
 	}

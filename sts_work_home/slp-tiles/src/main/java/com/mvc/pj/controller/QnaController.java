@@ -11,8 +11,8 @@ public class QnaController {
 	private SqlSession sqlSession;//º¯¼ö
 	
 	
-	@RequestMapping("qna-list")
+	@RequestMapping("qna/list")
 	public String mm() {
-		return ".main.qna.qna-list";//ºä ¸®ÅÏ  //views/main.jsp
+		return ".main.qna.list";//ºä ¸®ÅÏ  //views/main.jsp
 	}
 }

@@ -14,7 +14,7 @@
 			<div>${dto.content}</div>
 			<div class="btn-box clear">
 				<input class="btn-item" type="button" value="글삭제" onClick="location.href='/faq/del?no=${dto.no}&pageNo=${pageNo}'"/>
-				<input class="btn-item" type="button" value="글수정" onClick="location.href='/faq/update?no=${dto.no}&pageNo=${pageNo}'"/>
+				<input class="btn-item" type="button" value="글수정" onClick="location.href='/faq/edit?no=${dto.no}&pageNo=${pageNo}'"/>
 			</div>
 			</div>
 		</c:forEach>

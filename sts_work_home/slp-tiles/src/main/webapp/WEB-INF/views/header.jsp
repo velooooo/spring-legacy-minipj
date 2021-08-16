@@ -23,22 +23,22 @@
             </h1>
             <ul class="gnb_ul clear">
                 <li class="gnb_li">
-                    <a href="/basic-list" class="gnb_a">
+                    <a href="/board/list" class="gnb_a">
                         일반 게시판1
                     </a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/gal-list" class="gnb_a">
+                    <a href="/gallery/list" class="gnb_a">
                         갤러리 게시판1
                     </a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/notice-list" class="gnb_a">
+                    <a href="/notice/list" class="gnb_a">
                         공지사항
                     </a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/qna-list" class="gnb_a">
+                    <a href="/qna/list" class="gnb_a">
                         Q&A
                     </a>
                 </li>

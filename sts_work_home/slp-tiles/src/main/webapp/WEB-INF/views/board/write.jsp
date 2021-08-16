@@ -32,7 +32,7 @@ function check(){
 <c:if test="${no!=0}"><!-- 글번호가 있으면 첫 번째 글이 아니므로 답글쓰기 -->
 	<h2 class="tit">답글쓰기</h2>
 </c:if>
-<form method="post" action="writePro" onSubmit="return check()">
+<form method="post" action="/board/savePro" onSubmit="return check()">
 	<input type="hidden" name="pageNo" value="${pageNo}">
 	<input type="hidden" name="no" value="${no}">
 	<input type="hidden" name="re_group" value="${re_group}">

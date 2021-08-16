@@ -5,7 +5,7 @@
 <%-- <jsp:include page="../inc/head.jsp"/> --%>
 <h2 class="tit">게시판 목록(전체 ${count}글)</h2>
 <div class="btn-box clear">
-	<a class="btn-item" href="writeForm">글쓰기</a>
+	<a class="btn-item" href="/board/write">글쓰기</a>
 </div>
 <table>
 	<thead>
@@ -35,21 +35,21 @@
 				<!-- 답글이면 -->
 				<!-- 답글이면 이미지 넣는 방법 webapp/resources/imgs-->
 				<c:if test="${dto.re_depth>0}"><!-- re_depth이 0보다 크면 -->
-					<img src="resources/imgs/level.gif" width="${5*dto.re_depth}" height="16" class="ico_level"/><!-- 레벨만큼 들어가게 -->
-					<img src="resources/imgs/re.gif" class="ico_re"/><!-- 답글표시 이미지 -->
+					<img src="/resources/imgs/level.gif" width="${5*dto.re_depth}" height="16" class="ico_level"/><!-- 레벨만큼 들어가게 -->
+					<img src="/resources/imgs/re.gif" class="ico_re"/><!-- 답글표시 이미지 -->
 				</c:if>
 			
 				<!-- 원글이면 -->
 				<c:if test="${dto.re_depth==0}">
-					<img src="resources/imgs/level.gif" width="${5*dto.re_depth}" height="16" class="ico_level"/>
+					<img src="/resources/imgs/level.gif" width="${5*dto.re_depth}" height="16" class="ico_level"/>
 				</c:if>
 			
 				<!-- 글제목을 클릭하면 글내용보기로 이동 -->
-				<a href="content?no=${dto.no}&pageNo=${pageNo}" title="${dto.subject}">${dto.subject}</a>
+				<a href="/board/view?no=${dto.no}&pageNo=${pageNo}" title="${dto.subject}">${dto.subject}</a>
 				
 				<!-- 조회수가 20회 이상이면 hot.gif표시 -->
 				<c:if test="${dto.hit>=20}">
-					<img src="resources/imgs/hot.gif" class="ico_hot"/>
+					<img src="/resources/imgs/hot.gif" class="ico_hot"/>
 				</c:if>
 			</td>
 			<td>${dto.writer}</td>
@@ -84,17 +84,17 @@
 			
 			<!-- 이전 블럭 -->
 			<c:if test="${startPage>10}">
-				<a href="basic-list?pageNo=${startPage-10}">이전블럭</a>
+				<a href="/board/list?pageNo=${startPage-10}">이전블럭</a>
 			</c:if>
 			
 			<!-- 페이지처리 -->
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="basic-list?pageNo=${i}">[${i}]</a>
+				<a href="/board/list?pageNo=${i}">[${i}]</a>
 			</c:forEach>
 			
 			<!-- 다음 블럭 -->
 			<c:if test="${endPage<pageCount}">
-				<a href="basic-list?pageNo=${startPage+10}">다음블럭</a>
+				<a href="/board/list?pageNo=${startPage+10}">다음블럭</a>
 			</c:if>
 		</td>
 	</tr>

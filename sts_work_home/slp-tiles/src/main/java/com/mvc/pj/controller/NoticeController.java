@@ -11,8 +11,8 @@ public class NoticeController {
 	private SqlSession sqlSession;//º¯¼ö
 	
 	
-	@RequestMapping("notice-list")
+	@RequestMapping("notice/list")
 	public String mm() {
-		return ".main.notice.notice-list";//ºä ¸®ÅÏ  //views/main.jsp
+		return ".main.notice.list";//ºä ¸®ÅÏ  //views/main.jsp
 	}
 }

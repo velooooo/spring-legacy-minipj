@@ -11,8 +11,8 @@ public class GalleryController {
 	private SqlSession sqlSession;//º¯¼ö
 	
 	
-	@RequestMapping("gal-list")
+	@RequestMapping("gallery/list")
 	public String mm() {
-		return ".main.gallery.gal-list";//ºä ¸®ÅÏ  //views/main.jsp
+		return ".main.gallery.list";//ºä ¸®ÅÏ  //views/main.jsp
 	}
 }
