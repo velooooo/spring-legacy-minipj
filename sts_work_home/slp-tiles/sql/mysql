@@ -1,11 +1,16 @@
+--------------------------------
+-- DB 생성
+--------------------------------
 create database community;
 
 use community;
-
+--------------------------------
+-- 회원관리
+--------------------------------
 drop table member;
 
 create table member(
-num int not null primary key auto_increment,
+no int not null primary key auto_increment,
 id varchar(20) not null,
 pw varchar(15) not null,
 name varchar(30) not null,
@@ -19,6 +24,7 @@ reg_date date not null
 
 desc member;
 
+no			일련번호
 id			아이디
 pw			비밀번호
 name		성명
@@ -29,16 +35,17 @@ addr		주소
 addr_detail	상세주소
 reg_date 	가입일
 --------------------------------
-
+-- 일반 게시판(계층형)
+--------------------------------
 drop table board;
 
 create table board(
-num int not null primary key auto_increment,
+no int not null primary key auto_increment,
 writer varchar(30) not null,
 subject varchar(40) not null,
 content text not null,
 pw varchar(15) not null,
-reg_date datetime,
+wdate datetime,
 hit int default 0,
 re_group int not null,
 re_step int not null,
@@ -48,14 +55,79 @@ ip varchar(20) not null
 
 desc board;
 
--- num			번호
+-- no			번호
 -- writer		작성자
 -- subject		제목
 -- content		내용
 -- pw			비밀번호
--- reg_date		작성일
+-- wdate		작성일
 -- hit			조회수
 -- re_group		글 그룹(숫자)
 -- re_step		글 순서(숫자)
 -- re_depth		글 깊이
 -- ip			아이피
+--------------------------------
+-- 질문답변(댓글사용)
+--------------------------------
+create table qna(
+no int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(40) not null,
+content text not null,
+wdate datetime,
+hit int default 0,
+ip varchar(20) not null
+);
+--------------------------------
+-- 댓글
+--------------------------------
+drop table comment;
+
+create table comment(
+no int not null primary key auto_increment,
+writer varchar(30) not null,
+pw varchar(15) not null,
+content text not null,
+board_id varchar(30) not null,
+re_group int not null,
+re_step int not null,
+re_depth int not null,
+wdate datetime,
+ip varchar(20) not null
+);
+--------------------------------
+-- 공지사항(관리자만 사용)
+--------------------------------
+create table notice(
+no int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(40) not null,
+content text not null,
+wdate datetime,
+hit int default 0,
+ip varchar(20) not null
+);
+--------------------------------
+-- 자주 묻는 질문(관리자만 사용)
+--------------------------------
+create table faq(
+no int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(40) not null,
+content text not null,
+wdate datetime,
+hit int default 0,
+ip varchar(20) not null
+);
+--------------------------------
+-- 갤러리 게시판
+--------------------------------
+create table gallery(
+no int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(40) not null,
+content text not null,
+wdate datetime,
+hit int default 0,
+ip varchar(20) not null
+);

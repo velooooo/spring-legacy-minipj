@@ -7,11 +7,23 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 	  <typeAlias alias="memberDomain" type="com.mvc.pj.domain.MemberDTO"/>
 	  <typeAlias alias="boardBasic" type="com.mvc.pj.domain.BoardDTO"/>
+
+	  <typeAlias alias="comDomain" type="com.mvc.pj.domain.CommentDTO"/>
+	  <typeAlias alias="faqDomain" type="com.mvc.pj.domain.FaqDTO"/>
+	  <typeAlias alias="galDomain" type="com.mvc.pj.domain.GalleryDTO"/>
+	  <typeAlias alias="notDomain" type="com.mvc.pj.domain.NoticeDTO"/>
+	  <typeAlias alias="qnaDomain" type="com.mvc.pj.domain.QnaDTO"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mybatis/member.xml"/>
 		<mapper resource="/mybatis/board.xml"/>
+
+		<mapper resource="/mybatis/comment.xml"/>
+		<mapper resource="/mybatis/faq.xml"/>
+		<mapper resource="/mybatis/gallery.xml"/>
+		<mapper resource="/mybatis/notice.xml"/>
+		<mapper resource="/mybatis/qna.xml"/>
 	</mappers>
 	
 </configuration>
