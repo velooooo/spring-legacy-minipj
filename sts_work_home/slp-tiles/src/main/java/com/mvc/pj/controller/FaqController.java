@@ -76,7 +76,7 @@ public class FaqController {
 		int startPage = (currentPage / pageBlock) * 10 + 1;// 블럭 시작페이지
 		int endPage = startPage + pageBlock - 1;// 블럭의 끝 페이지
 		// --------------------------------------------------------------------
-		List<BoardDTO> list = sqlSession.selectList("faq.listDao", map);
+		List<FaqDTO> list = sqlSession.selectList("faq.listDao", map);
 
 		model.addAttribute("pageNo", pageNo);// 페이지번호
 		model.addAttribute("currentPage", currentPage);// 현재 페이지

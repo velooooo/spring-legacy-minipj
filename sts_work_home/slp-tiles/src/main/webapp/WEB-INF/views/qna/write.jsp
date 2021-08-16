@@ -21,8 +21,8 @@ function check(){
 	return true
 }
 </script>
-<h2 class="tit">질문답변 글쓰기</h2>
-<form method="post" action="writePro" onSubmit="return check()">
+<h2 class="tit">자주 묻는 질문 글쓰기</h2>
+<form method="post" action="/qna/savePro" onSubmit="return check()">
 	<input type="hidden" name="pageNo" value="${pageNo}">
 	<input type="hidden" name="no" value="${no}">
 	<div class="form-box">
@@ -44,7 +44,7 @@ function check(){
 			<input class="btn-item" type="submit" value="글쓰기"/>
 			
 			<input class="btn-item" type="reset" value="다시쓰기"/>
-			<input class="btn-item" type="button" value="글목록" onClick="location.href='basic-list'"/>
+			<input class="btn-item" type="button" value="글목록" onClick="location.href='/qna/list'"/>
 		</div>
 	</div>
 </form>
