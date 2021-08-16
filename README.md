@@ -21,6 +21,11 @@
 
 # dir
 ## sts_work_home
+### 2021-08-16
+- 경로 수정
+- faq, qna, notice, gallery 도메인 추가
+- faq list, write, update, view 추가
+- qna pw 추가하는 방향으로 변경(진행 중)
 ### 2021-08-11
 - 레이아웃 수정 완료
 - 모든경로 수정 완료
