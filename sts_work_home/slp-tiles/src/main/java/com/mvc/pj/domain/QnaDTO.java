@@ -7,6 +7,7 @@ public class QnaDTO {
 	private String writer;
 	private String subject;
 	private String content;
+	private String pw;
 	private Date wdate;
 	private int hit;
 	private String ip;
@@ -65,5 +66,13 @@ public class QnaDTO {
 
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 }

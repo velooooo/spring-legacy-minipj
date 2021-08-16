@@ -74,6 +74,7 @@ no int not null primary key auto_increment,
 writer varchar(30) not null,
 subject varchar(40) not null,
 content text not null,
+pw varchar(15) not null,
 wdate datetime,
 hit int default 0,
 ip varchar(20) not null
