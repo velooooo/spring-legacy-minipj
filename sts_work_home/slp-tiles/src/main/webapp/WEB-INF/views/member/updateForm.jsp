@@ -13,7 +13,7 @@
 		}).open();
 	}//openDaumPostcode()---
 </script>
-	<h2>내정보수정</h2>
+	<h2 class="tit">내정보수정</h2>
 	<form name="upForm" method="post" action="memUpdatePro">
 		<table>
 			<tr>

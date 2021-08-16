@@ -22,7 +22,7 @@
 	${msg}
 </c:if>
 
-	<h2>로그인</h2>
+	<h2 class="tit">로그인</h2>
 
 	<form name="loginForm" method="post" action="loginPro"
 		onsubmit="return check()">

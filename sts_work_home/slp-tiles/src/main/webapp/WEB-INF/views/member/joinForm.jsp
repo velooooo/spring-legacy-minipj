@@ -78,7 +78,7 @@
 		}//else-end
 	}//cinfirmIDCheck()-end
 </script>
-	<h2>회원가입</h2>
+	<h2 class="tit">회원가입</h2>
 	<form method="post" action="insertPro" onSubmit="return check()">
 
 		<table>
