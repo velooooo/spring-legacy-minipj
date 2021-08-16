@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<!-- 댓글 쓰기, 대댓글쓰기 insert -->
-	<insert id="insertDao" parameterType="comDomain">
+	<insert id="insertDao" parameterType="commDomain">
 		insert into comment
 		(writer, pw, content, board_id, wdate, co_group, co_step, co_depth, ip)
 		values(#{writer},#{pw},#{content},#{board_id},NOW(),#{co_group},#{co_step},#{co_depth},#{ip})

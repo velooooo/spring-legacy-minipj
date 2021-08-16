@@ -8,10 +8,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	  <typeAlias alias="memberDomain" type="com.mvc.pj.domain.MemberDTO"/>
 	  <typeAlias alias="boardBasic" type="com.mvc.pj.domain.BoardDTO"/>
 
-	  <typeAlias alias="comDomain" type="com.mvc.pj.domain.CommentDTO"/>
+	  <typeAlias alias="commDomain" type="com.mvc.pj.domain.CommentDTO"/>
 	  <typeAlias alias="faqDomain" type="com.mvc.pj.domain.FaqDTO"/>
-	  <typeAlias alias="galDomain" type="com.mvc.pj.domain.GalleryDTO"/>
-	  <typeAlias alias="notDomain" type="com.mvc.pj.domain.NoticeDTO"/>
+	  <typeAlias alias="gallDomain" type="com.mvc.pj.domain.GalleryDTO"/>
+	  <typeAlias alias="notiDomain" type="com.mvc.pj.domain.NoticeDTO"/>
 	  <typeAlias alias="qnaDomain" type="com.mvc.pj.domain.QnaDTO"/>
 	</typeAliases>
 

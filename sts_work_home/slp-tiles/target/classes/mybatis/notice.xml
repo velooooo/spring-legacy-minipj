@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 글 쓰기, 답글쓰기 insert -->
-	<insert id="insertDao" parameterType="noticeDomain">
+	<insert id="insertDao" parameterType="notiDomain">
 		insert into notice
 		(writer,subject, content, wdate, ip)
 		values(#{writer},#{subject},#{content},NOW(),#{ip})
