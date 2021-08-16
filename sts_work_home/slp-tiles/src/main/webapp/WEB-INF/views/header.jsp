@@ -18,7 +18,7 @@
         <nav class="gnb clear">
             <h1 class="logo">
                 <a href="/" class="logo_link">
-                    <img src="resources/imgs/logo.png" alt="logo">
+                    <img src="/resources/imgs/logo.png" alt="logo">
                 </a>
             </h1>
             <ul class="gnb_ul clear">
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/faq" class="gnb_a">
+                    <a href="/faq/list" class="gnb_a">
                         FAQ
                     </a>
                 </li>

@@ -1,3 +1,3 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-Notice!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<h2 class="tit">공지 게시판 목록</h2>

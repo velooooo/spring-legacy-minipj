@@ -5,12 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="faq">
 
-	<!-- 최대 글번호 얻기 -->
-	<select id="noMax" resultType="Integer">
-		select max(no)
-		from faq
-	</select>
-
 	<!-- 글 쓰기, 답글쓰기 insert -->
 	<insert id="insertDao" parameterType="faqDomain">
 		insert into faq
@@ -30,14 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{start}, #{cnt}
 	</select>
 
-	<!-- 조회수 증가 -->
-	<update id="readcountDao" parameterType="Integer">
-		update faq set
-		hit=hit+1 where no=#{no}
-	</update>
-
-	<!-- 글내용 보기, 글 수정 폼 -->
-	<select id="getfaq" parameterType="Integer"
+	<!-- 글내용 보기, 글 수정 폼 *faq에서는 글 내용보기가 따로 없음. -->
+	<select id="getFaq" parameterType="Integer"
 		resultType="com.mvc.pj.domain.FaqDTO">
 		select * from faq where no=#{no}
 	</select>

@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="aside_li">
-                <a href="/faq" class="aside_a">
+                <a href="/faq/list" class="aside_a">
                     FAQ
                 </a>
             </li>

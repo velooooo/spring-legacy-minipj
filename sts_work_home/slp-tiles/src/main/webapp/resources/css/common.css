@@ -51,7 +51,7 @@ input[type="submit"],input[type="button"],input[type="reset"] {cursor:pointer}
 aside{width: 200px;float: left;border-right: 1px solid #000;box-sizing: border-box;height: calc(100vh - 170px);}
 section{width: calc(100% - 200px);float: left;padding: 40px 20px;box-sizing: border-box;}
 article{width: auto;min-height: 150px;/* margin: 10px; */padding: 20px;box-sizing: border-box;}
-.tit{ text-align: center;}
+.tit{text-align: center;font-size: 24px;}
 
 /* slick-article */
 .slick-article{width: 100%;position: relative;overflow: hidden;}
@@ -76,13 +76,23 @@ article{width: auto;min-height: 150px;/* margin: 10px; */padding: 20px;box-sizin
 /* 하단영역 */
 .footer_info{ font-size: 14px; line-height: 40px; color: #fff;}
 
-/* qna - 자주묻는질문 아코디언 */
+/* faq - 자주묻는질문 아코디언 */
 .accordion { background-color: #eee;color: #444; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px; transition: 0.4s;}
-.accordion-active, .accordion:hover { background-color: #ccc;}
-.accordion-panel { padding: 0 18px; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out;}
+.accordion-active, .accordion:hover {background-color: #6db33f;color: #fff;}
+.accordion-panel {background-color: white;max-height: 0;overflow: hidden;transition: max-height 0.2s ease-out;margin-bottom: 10px;}
+.accordion-active + .accordion-panel{ padding: 18px;}
+.faq-date{ float: right;}
 
 /* table style */
-table{ min-width: 700px; width: 100%; max-width: 1200px; border: none;}
+table{min-width: 700px;width: 100%;max-width: 1200px;border: none;border-spacing: 0;border-collapse: inherit;}
+table td{padding: 0 10px;line-height: 34px;font-size: 15px;}
+thead{text-align: center;border-bottom: 2px solid #ddd;}
+thead tr{}
+thead td{ border-bottom: 2px solid #6db33f;}
+tbody{}
+tbody tr{}
+tbody td{ border-bottom: 1px solid #ddd;}
+tbody td:first-child{ text-align: center;}
 .tit-board{ min-width: 700px; width: 100%; max-width: 1200px; text-align: left; font-size: 20px; line-height: 60px;}
 .con-info{ min-width: 700px; width: 100%; max-width: 1200px;}
 .con-info span{ display: block; line-height: 20px;}
@@ -90,7 +100,7 @@ table{ min-width: 700px; width: 100%; max-width: 1200px; border: none;}
 .con-block{ font-size: 15px; line-height: 30px;}
 
 .btn-box{ min-width: 700px; width: 100%; max-width: 1200px;}
-.btn-box .btn-item{ background-color: #6db33f; border: none; color: #fff; font-size: 14px; padding: 4px 10px; float: right; margin: 0 2px; border-radius: 3px;}
+.btn-box .btn-item{background-color: #6db33f;border: none;color: #fff;font-size: 16px;padding: 4px 10px;float: right;margin: 0 2px;border-radius: 3px;}
 
 
 @media all and (max-width:900px) {

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%-- <jsp:include page="../inc/head.jsp"/> --%>
-<h2 class="tit">글목록(전체 ${count}글)</h2>
+<h2 class="tit">게시판 목록(전체 ${count}글)</h2>
 <div class="btn-box clear">
 	<a class="btn-item" href="writeForm">글쓰기</a>
 </div>
@@ -25,9 +25,10 @@
 		<tr>
 			<td>
 				<!-- dto.no 수정할것 -->
-				<c:out value="${number}"/>
-				<c:set var="number" value="${number-1}"/>
+				<%-- <c:out value="${number}"/>
+				<c:set var="number" value="${number-1}"/> --%>
 				<!-- 역순을 위해 -1을 해줬는데 왜 역순으로 해야하는지 모르겠음. -->
+				${dto.no}
 			</td>
 			<!-- 글제목 -->
 			<td>
