@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 글 쓰기, 답글쓰기 insert -->
-	<insert id="insertDao" parameterType="qnaBasic">
+	<insert id="insertDao" parameterType="qnaDomain">
 		insert into qna
 		(writer,subject, content, pw, wdate, ip)
 		values(#{writer},#{subject},#{content},#{pw},NOW(),#{ip})

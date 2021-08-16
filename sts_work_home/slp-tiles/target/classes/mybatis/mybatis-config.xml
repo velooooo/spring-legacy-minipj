@@ -7,7 +7,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 	  <typeAlias alias="memberDomain" type="com.mvc.pj.domain.MemberDTO"/>
 	  <typeAlias alias="boardBasic" type="com.mvc.pj.domain.BoardDTO"/>
-
 	  <typeAlias alias="commDomain" type="com.mvc.pj.domain.CommentDTO"/>
 	  <typeAlias alias="faqDomain" type="com.mvc.pj.domain.FaqDTO"/>
 	  <typeAlias alias="gallDomain" type="com.mvc.pj.domain.GalleryDTO"/>
@@ -18,7 +17,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="/mybatis/member.xml"/>
 		<mapper resource="/mybatis/board.xml"/>
-
 		<mapper resource="/mybatis/comment.xml"/>
 		<mapper resource="/mybatis/faq.xml"/>
 		<mapper resource="/mybatis/gallery.xml"/>
