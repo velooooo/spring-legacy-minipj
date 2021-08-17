@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	  <typeAlias alias="gallDomain" type="com.mvc.pj.domain.GalleryDTO"/>
 	  <typeAlias alias="notiDomain" type="com.mvc.pj.domain.NoticeDTO"/>
 	  <typeAlias alias="qnaDomain" type="com.mvc.pj.domain.QnaDTO"/>
+	  <typeAlias alias="qnaReCoDomain" type="com.mvc.pj.domain.QnaReCoDTO"/>
 	</typeAliases>
 
 	<mappers>
@@ -22,6 +23,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="/mybatis/gallery.xml"/>
 		<mapper resource="/mybatis/notice.xml"/>
 		<mapper resource="/mybatis/qna.xml"/>
+		<mapper resource="/mybatis/qna-re-co.xml"/>
 	</mappers>
 	
 </configuration>

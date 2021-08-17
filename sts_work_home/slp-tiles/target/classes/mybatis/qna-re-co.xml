@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qnaReCo">
+
+	<!-- 최대번호선택 -->
+	<select id="noMax" resultType="Integer">
+		select max(no)
+		from qna_re_co
+	</select>
+
+	<!-- 글 갯수 선택 -->
+	<select id="cntDao" resultType="int">
+		select count(*)
+		from qna_re_co
+		where co_is=0
+	</select>
+
+	<!-- 답글위치확보 -->
+	<update id="reStep" parameterType="qnaReCoDomain">
+		update qna_re_co
+		set re_depth=re_depth+1
+		where no_group=#{no_group} and re_depth>#{re_depth}
+	</update>
+
+	<!-- 댓글위치확보 -->
+	<update id="coStep" parameterType="qnaReCoDomain">
+		update qna_re_co
+		set co_depth=co_depth+1
+		where no_group=#{no_group} and co_depth>#{co_depth}
+	</update>
+
+	<!-- 원글답글 등록 -->
+	<insert id="insertDao" parameterType="qnaReCoDomain">
+		insert into
+		qna_re_co(no_group, re_depth, co_is, co_depth, writer, subject, content, pw, wdate, ldate, hit,
+		ip)
+		values(#{no_group},#{re_depth},#{co_is},#{co_depth},#{writer},#{subject},#{content},#{pw},NOW(),NOW(),#{hit},#{ip})
+	</insert>
+	
+	<!-- 댓글 등록 -->
+	<insert id="insertCoDao" parameterType="qnaReCoDomain">
+		insert into
+		qna_re_co(no_group, re_depth, co_is, co_depth, writer, content, pw, wdate, ldate, ip)
+		values(#{no_group},#{re_depth},#{co_is},#{co_depth},#{writer},#{content},#{pw},NOW(),NOW(),#{ip})
+	</insert>
+
+	<!-- 목록출력 -->
+	<select id="listDao" parameterType="java.util.Map" resultType="qnaReCoDomain">
+		select *
+		from qna_re_co
+		where co_is=0
+		order by no_group desc, re_depth asc limit #{start}, #{cnt}
+	</select>
+
+	<!-- 상세출력, 글 수정 폼 -->
+	<select id="viewDao" parameterType="Integer"
+		resultType="qnaReCoDomain">
+		select *
+		from qna_re_co
+		where no=#{no}
+	</select>
+
+	<!-- 댓글출력 -->
+	<select id="coDao" parameterType="Integer"
+		resultType="qnaReCoDomain">
+		seledt *
+		from qna_re_co
+		where no=#{no} and co_is=1
+	</select>
+
+	<!-- 조회수증가 -->
+	<update id="hitDao" parameterType="Integer">
+		update qna_re_co
+		set hit=hit+1
+		where no=#{no}
+	</update>
+
+	<!-- 글수정 -->
+	<update id="editDao" parameterType="qnaReCoDomain">
+		update qna_re_co
+		set subject=#{subject}, content=#{content}
+		where no=#{no} and pw=#{pw}
+	</update>
+
+	<!-- 글 삭제 -->
+	<delete id="delDao" parameterType="int">
+		delete from qna_re_co
+		where no=#{no}
+	</delete>
+
+</mapper>

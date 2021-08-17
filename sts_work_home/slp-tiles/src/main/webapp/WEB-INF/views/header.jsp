@@ -23,29 +23,22 @@
             </h1>
             <ul class="gnb_ul clear">
                 <li class="gnb_li">
-                    <a href="/board/list" class="gnb_a">
-                        일반 게시판1
-                    </a>
+                    <a href="/board/list" class="gnb_a">일반 게시판1</a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/gallery/list" class="gnb_a">
-                        갤러리 게시판1
-                    </a>
+                    <a href="/gallery/list" class="gnb_a">갤러리 게시판1</a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/notice/list" class="gnb_a">
-                        공지사항
-                    </a>
+                    <a href="/notice/list" class="gnb_a">공지사항</a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/qna/list" class="gnb_a">
-                        Q&A
-                    </a>
+                    <a href="/qna/list" class="gnb_a">Q&A</a>
                 </li>
                 <li class="gnb_li">
-                    <a href="/faq/list" class="gnb_a">
-                        FAQ
-                    </a>
+                    <a href="/qna-re-co/list" class="gnb_a">Q&A2</a>
+                </li>
+                <li class="gnb_li">
+                    <a href="/faq/list" class="gnb_a">FAQ</a>
                 </li>
             </ul>
         </nav>

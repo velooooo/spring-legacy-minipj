@@ -27,7 +27,7 @@ function check(){
 }
 </script>
 <h2 class="tit">QnA 글쓰기</h2>
-<form method="post" action="/qna/savePro" onSubmit="return check()">
+<form method="post" action="/qna-re-co/savePro" onSubmit="return check()">
 	<input type="hidden" name="pageNo" value="${pageNo}">
 	<input type="hidden" name="no" value="${no}">
 	<div class="form-box">
@@ -53,7 +53,7 @@ function check(){
 			<input class="btn-item" type="submit" value="글쓰기"/>
 			
 			<input class="btn-item" type="reset" value="다시쓰기"/>
-			<input class="btn-item" type="button" value="글목록" onClick="location.href='/qna/list'"/>
+			<input class="btn-item" type="button" value="글목록" onClick="location.href='/qna-re-co/list'"/>
 		</div>
 	</div>
 </form>

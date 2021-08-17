@@ -5,7 +5,7 @@
 <%-- <jsp:include page="../inc/head.jsp"/> --%>
 <h2 class="tit">QnA 게시판 목록(전체 ${count}글)</h2>
 <div class="btn-box clear">
-	<a class="btn-item" href="/qna/write">글쓰기</a>
+	<a class="btn-item" href="/qna-re-co/write">글쓰기</a>
 </div>
 <table>
 	<thead>
@@ -33,7 +33,7 @@
 			<!-- 글제목 -->
 			<td class="bo_tit">
 				<!-- 글제목을 클릭하면 글내용보기로 이동 -->
-				<a href="/qna/view?no=${qdto.no}&pageNo=${pageNo}" title="${qdto.subject}">${qdto.subject}</a>
+				<a href="/qna-re-co/view?no=${qdto.no}&pageNo=${pageNo}" title="${qdto.subject}">${qdto.subject}</a>
 			</td>
 			<td>${qdto.writer}</td>
 			<td><fmt:formatDate value="${qdto.wdate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
@@ -67,17 +67,17 @@
 			
 			<!-- 이전 블럭 -->
 			<c:if test="${startPage>10}">
-				<a href="/qna/list?pageNo=${startPage-10}">이전블럭</a>
+				<a href="/qna-re-co/list?pageNo=${startPage-10}">이전블럭</a>
 			</c:if>
 			
 			<!-- 페이지처리 -->
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="/qna/list?pageNo=${i}">[${i}]</a>
+				<a href="/qna-re-co/list?pageNo=${i}">[${i}]</a>
 			</c:forEach>
 			
 			<!-- 다음 블럭 -->
 			<c:if test="${endPage<pageCount}">
-				<a href="/qna/list?pageNo=${startPage+10}">다음블럭</a>
+				<a href="/qna-re-co/list?pageNo=${startPage+10}">다음블럭</a>
 			</c:if>
 		</td>
 	</tr>

@@ -44,7 +44,7 @@ input[type="submit"],input[type="button"],input[type="reset"] {cursor:pointer}
 .gnb .logo_link{display: block;height: 80px;}
 .gnb .logo_link img{ width: auto; height: 100%;}
 .gnb .gnb_ul{width: calc(100% - 200px);float: right;}
-.gnb .gnb_li{float: left;width: 20%;text-align: right;line-height: 60px;}
+.gnb .gnb_li{float: left;width: 16.66%;text-align: right;line-height: 60px;}
 .gnb .gnb_a{ display: block; font-size: 16px; line-height: 60px; color: #333;}
 
 /* 메인 본문영역 */
