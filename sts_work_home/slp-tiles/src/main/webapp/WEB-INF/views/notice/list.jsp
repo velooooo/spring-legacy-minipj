@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%-- <jsp:include page="../inc/head.jsp"/> --%>
-<h2 class="tit">QnA게시판 목록(전체 ${count}글)</h2>
+<h2 class="tit">Notice 게시판 목록(전체 ${count}글)</h2>
 <div class="btn-box clear">
-	<a class="btn-item" href="/qna/write">글쓰기</a>
+	<a class="btn-item" href="/notice/write">글쓰기</a>
 </div>
 <table>
 	<thead>
@@ -33,7 +33,7 @@
 			<!-- 글제목 -->
 			<td class="bo_tit">
 				<!-- 글제목을 클릭하면 글내용보기로 이동 -->
-				<a href="/qna/view?no=${ndto.no}&pageNo=${pageNo}" title="${ndto.subject}">${ndto.subject}</a>
+				<a href="/notice/view?no=${ndto.no}&pageNo=${pageNo}" title="${ndto.subject}">${ndto.subject}</a>
 			</td>
 			<td>${ndto.writer}</td>
 			<td><fmt:formatDate value="${ndto.wdate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
@@ -67,17 +67,17 @@
 			
 			<!-- 이전 블럭 -->
 			<c:if test="${startPage>10}">
-				<a href="/qna/list?pageNo=${startPage-10}">이전블럭</a>
+				<a href="/notice/list?pageNo=${startPage-10}">이전블럭</a>
 			</c:if>
 			
 			<!-- 페이지처리 -->
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="/qna/list?pageNo=${i}">[${i}]</a>
+				<a href="/notice/list?pageNo=${i}">[${i}]</a>
 			</c:forEach>
 			
 			<!-- 다음 블럭 -->
 			<c:if test="${endPage<pageCount}">
-				<a href="/qna/list?pageNo=${startPage+10}">다음블럭</a>
+				<a href="/notice/list?pageNo=${startPage+10}">다음블럭</a>
 			</c:if>
 		</td>
 	</tr>

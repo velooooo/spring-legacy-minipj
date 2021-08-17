@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<h2 class="tit">자주 묻는 질문 - ${ndto.subject} 수정</h2>
+<h2 class="tit">Notice - ${ndto.subject} 수정</h2>
 <form method="post" action="updatePro">
 	<div class="form-box">
 		<div class="form-block">
@@ -29,7 +29,7 @@
 		<div class="btn-box clear">
 			<input class="btn-item" type="submit" value="글수정"/>
 			<input class="btn-item" type="reset" value="다시쓰기"/>
-			<input class="btn-item" type="button" value="글 목록" onclick="location.href='/qna/list?pageNo=${pageNo}'"/>
+			<input class="btn-item" type="button" value="글 목록" onclick="location.href='/notice/list?pageNo=${pageNo}'"/>
 		</div>
 	</div>
 </form>
