@@ -23,7 +23,18 @@ public class QnaReCoController {
 	private SqlSession sqlSession;// 변수
 
 	// 글작성폼
+	@RequestMapping("/qna-re-co/write")
+	public String write(Model model, String no, String pageNo) {
 
+		if (no == null) {// no이 없으면 글 쓰기
+			no = "0"; // 글 번호
+		} // if-end
+			// 모두 넣어줌.
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("no", new Integer(no));
+		//
+		return ".main.qna-re-co.write";// View return write.jsp
+	}
 	// 글작성 저장
 
 	// 리스트 출력
@@ -72,6 +83,7 @@ public class QnaReCoController {
 
 		return ".main.qna-re-co.list";// 뷰 리턴 //views/main.jsp
 	}
+	
 	// 글 내용 보기
 
 	// 수정 폼
