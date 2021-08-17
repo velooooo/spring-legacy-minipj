@@ -85,14 +85,15 @@ article{width: auto;min-height: 150px;/* margin: 10px; */padding: 20px;box-sizin
 
 /* table style */
 table{min-width: 700px;width: 100%;max-width: 1200px;border: none;border-spacing: 0;border-collapse: inherit;}
-table td{padding: 0 10px;line-height: 34px;font-size: 15px;}
+table td{padding: 0 10px;line-height: 46px;font-size: 15px;}
 thead{text-align: center;border-bottom: 2px solid #ddd;}
 thead tr{}
 thead td{ border-bottom: 2px solid #6db33f;}
 tbody{}
 tbody tr{}
-tbody td{ border-bottom: 1px solid #ddd;}
+tbody td{border-bottom: 1px solid #ddd;text-align: center;}
 tbody td:first-child{ text-align: center;}
+tbody td.bo_tit{ text-align: left;}
 .tit-board{ min-width: 700px; width: 100%; max-width: 1200px; text-align: left; font-size: 20px; line-height: 60px;}
 .con-info{ min-width: 700px; width: 100%; max-width: 1200px;}
 .con-info span{ display: block; line-height: 20px;}

@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 조회수 증가(댓글에서는 사용하지 않음) -->
 
 	<!-- 내용 보기, 수정 폼 -->
-	<select id="getcomment" parameterType="Integer"
+	<select id="getComment" parameterType="Integer"
 		resultType="com.mvc.pj.domain.CommentDTO">
 		select * from comment where no=#{no}
 	</select>

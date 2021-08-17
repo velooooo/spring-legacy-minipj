@@ -8,7 +8,6 @@
 	<input class="btn-item" type="button" value="글수정" onClick="location.href='/qna/edit?no=${no}&pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="글목록" onClick="location.href='/qna/list?pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="새글쓰기" onClick="location.href='/qna/write'"/>
-	<input class="btn-item" type="button" value="답글쓰기" onClick="location.href='/qna/write?no=${no}&pageNo=${pageNo}&re_group=${qdto.re_group}&re_step=${qdto.re_step}&re_depth=${qdto.re_depth}'"/>
 </div>
 <article>
 	<h2 class="tit tit-qna">${qdto.subject}</h2>
@@ -28,5 +27,4 @@
 	<input class="btn-item" type="button" value="글수정" onClick="location.href='/qna/edit?no=${no}&pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="글목록" onClick="location.href='/qna/list?pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="새글쓰기" onClick="location.href='/qna/write'"/>
-	<input class="btn-item" type="button" value="답글쓰기" onClick="location.href='/qna/write?no=${no}&pageNo=${pageNo}&re_group=${qdto.re_group}&re_step=${qdto.re_step}&re_depth=${qdto.re_depth}'"/>
 </div>

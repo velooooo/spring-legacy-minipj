@@ -100,15 +100,15 @@ public class QnaController {
 		int no1 = Integer.parseInt(no);
 		sqlSession.update("qna.readcountDao", no1);// 조회수증가
 
-		QnaDTO bdto = sqlSession.selectOne("qna.getBoard", no1);
+		QnaDTO qdto = sqlSession.selectOne("qna.getQna", no1);
 
-		String content = bdto.getContent();
+		String content = qdto.getContent();
 		content = content.replace("\n", "<br/>");
 
 		model.addAttribute("content", content);
 		model.addAttribute("pageNo", pageNo);// 페이지번호
 		model.addAttribute("no", no1);
-		model.addAttribute("bdto", bdto);
+		model.addAttribute("qdto", qdto);
 
 		return ".main.qna.view"; // view return content.jsp
 	}
@@ -117,11 +117,11 @@ public class QnaController {
 	@RequestMapping("/qna/edit")
 	public ModelAndView updateForm(String no, String pageNo) {
 		int no1 = Integer.parseInt(no);
-		QnaDTO fdto = sqlSession.selectOne("qna.getqna", no1);
+		QnaDTO qdto = sqlSession.selectOne("qna.getQna", no1);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNo", pageNo);
-		mv.addObject("fdto", fdto);
+		mv.addObject("qdto", qdto);
 		mv.setViewName(".main.qna.edit");// updateForm.jsp
 
 		return mv;
@@ -129,8 +129,8 @@ public class QnaController {
 
 	// DB글 수정
 	@RequestMapping(value = "/qna/updatePro", method = RequestMethod.POST)
-	public ModelAndView updatePro(QnaDTO boardDTO, String pageNo) {
-		sqlSession.update("qna.updateDao", boardDTO);
+	public ModelAndView updatePro(QnaDTO qnaDTO, String pageNo) {
+		sqlSession.update("qna.updateDao", qnaDTO);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNo", pageNo);

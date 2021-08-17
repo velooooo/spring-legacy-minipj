@@ -31,7 +31,7 @@
 				${dto.no}
 			</td>
 			<!-- 글제목 -->
-			<td>
+			<td class="bo_tit">
 				<!-- 답글이면 -->
 				<!-- 답글이면 이미지 넣는 방법 webapp/resources/imgs-->
 				<c:if test="${dto.re_depth>0}"><!-- re_depth이 0보다 크면 -->

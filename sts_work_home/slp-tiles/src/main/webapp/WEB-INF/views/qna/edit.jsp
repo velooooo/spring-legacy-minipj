@@ -26,6 +26,11 @@
 			</div>
 		</div>
 		
+		<div class="form-block">
+			<p><label for="pw">암호</label></p>
+			<p><input type="password" name="pw" id="pw" size="10"/></p>
+		</div>
+		
 		<div class="btn-box clear">
 			<input class="btn-item" type="submit" value="글수정"/>
 			<input class="btn-item" type="reset" value="다시쓰기"/>

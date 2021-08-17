@@ -18,6 +18,11 @@ function check(){
 		$('#content').focus();
 		return false;
 	}
+	if($('#pw').val()==''){
+		alert("비밀번호를 입력하세요.");
+		$('#pw').focus();
+		return false;
+	}
 	return true
 }
 </script>
@@ -39,6 +44,10 @@ function check(){
 		<div class="form-block">
 			<p><label for="content">글 내용</label></p>
 			<p><textarea name="content" id="content" rows="10" cols="60"></textarea></p>
+		</div>
+		<div class="form-block">
+			<p><label for="pw">비밀번호</label></p>
+			<p><input type="password" name="pw" id="pw" size="20"/></p>
 		</div>
 		<div class="btn-box clear">
 			<input class="btn-item" type="submit" value="글쓰기"/>

@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<!-- 글내용 보기, 글 수정 폼 -->
-	<select id="getgallery" parameterType="Integer"
+	<select id="getGallery" parameterType="Integer"
 		resultType="com.mvc.pj.domain.GalleryDTO">
 		select * from gallery where no=#{no}
 	</select>
