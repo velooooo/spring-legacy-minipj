@@ -10,6 +10,7 @@ public class QnaDTO {
 	private String pw;
 	private Date wdate;
 	private int hit;
+	private int co_is;
 	private int co_group;
 	private int co_step;
 	private int co_depth;
@@ -80,5 +81,11 @@ public class QnaDTO {
 	}
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+	public int getCo_is() {
+		return co_is;
+	}
+	public void setCo_is(int co_is) {
+		this.co_is = co_is;
 	}
 }

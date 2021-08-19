@@ -25,10 +25,11 @@
 	<div class="comment-list">
 		<ul class="comment-box">
 			<li class="comment-block">
-				<form method="post" action="/qna/saveCoPro" onSubmit="return check()">
+				<form method="post" action="/qna/saveCoPro" onSubmit="return checkCo()">
 					<input type="hidden" name="pageNo" value="${pageNo}">
 					<input type="hidden" name="no" value="${no}">
 					<input type="hidden" name="subject" value="comment">
+					<input type="hidden" name="co_is" value="1">
 					
 					<div class="form-box">
 						<div class="form-block">
@@ -76,3 +77,23 @@
 	<input class="btn-item" type="button" value="글목록" onClick="location.href='/qna/list?pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="새글쓰기" onClick="location.href='/qna/write'"/>
 </div>
+<script>
+function checkCo(){
+	if($('#writer').val()==''){
+		alert("이름을 입력하세요.");
+		$('#writer').focus();
+		return false;
+	}
+	if($('#content').val()==''){
+		alert("내용을 입력하세요.");
+		$('#content').focus();
+		return false;
+	}
+	if($('#pw').val()==''){
+		alert("비밀번호를 입력하세요.");
+		$('#pw').focus();
+		return false;
+	}
+	return true
+}
+</script>

@@ -72,7 +72,7 @@ public class QnaController {
 		qnaDTO.setIp(ip);
 
 		// 원글, 답글
-		if (qnaDTO.getNo() != 0) {// 답글이면
+		if (qnaDTO.getCo_is() != 0) {// 게시글이면
 			// 답글 끼워넣기 위치 확보
 			sqlSession.update("qna.coStep", qnaDTO);
 			qnaDTO.setCo_step(qnaDTO.getCo_step() + 1);// 글 순서 + 1
