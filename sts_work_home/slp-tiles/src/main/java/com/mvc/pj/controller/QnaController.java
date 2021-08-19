@@ -150,8 +150,8 @@ public class QnaController {
 		model.addAttribute("pageNo", pageNo);// 페이지번호
 		model.addAttribute("no", no1);
 		model.addAttribute("qdto", qdto);
-		
-		//====================================================================
+
+		// ====================================================================
 		if (pageCoNo == null) {// 페이지 번호 없으면
 			pageCoNo = "1";
 		}
@@ -192,7 +192,7 @@ public class QnaController {
 		model.addAttribute("pageCoSize", pageCoSize);// 페이지당 글 갯수
 		model.addAttribute("numberCo", numberCo);// 글 번호
 		model.addAttribute("listCo", listCo);//
-		//====================================================================
+		// ====================================================================
 
 		return ".main.qna.view"; // view return content.jsp
 	}
@@ -200,6 +200,20 @@ public class QnaController {
 	// 수정 폼
 	@RequestMapping("/qna/edit")
 	public ModelAndView updateForm(String no, String pageNo) {
+		int no1 = Integer.parseInt(no);
+		QnaDTO qdto = sqlSession.selectOne("qna.getQna", no1);
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("pageNo", pageNo);
+		mv.addObject("qdto", qdto);
+		mv.setViewName(".main.qna.edit");// updateForm.jsp
+
+		return mv;
+	}
+
+	// 수정 폼
+	@RequestMapping("/qna/editCo")
+	public ModelAndView updateFormCo(String no, String pageNo) {
 		int no1 = Integer.parseInt(no);
 		QnaDTO qdto = sqlSession.selectOne("qna.getQna", no1);
 
@@ -226,7 +240,22 @@ public class QnaController {
 	// 글 삭제
 	@RequestMapping("/qna/del")
 	public String delete(Model model, String no, String pageNo) {
+		// 댓글이 하나라도 있으면 삭제할 수 없음.
+
+		// 삭제
 		sqlSession.delete("qna.deleteDao", new Integer(no));
+
+		model.addAttribute("pageNo", pageNo);
+		return "redirect:/qna/list";
+	}
+
+	// 댓글 삭제
+	@RequestMapping("/qna/delCo")
+	public String deleteCo(Model model, String no, String pageNo) {
+		// 대댓글이 하나라도 있으면 삭제할 수 없음
+
+		// 삭제
+		sqlSession.delete("qna.deleteCoDao", new Integer(no));
 
 		model.addAttribute("pageNo", pageNo);
 		return "redirect:/qna/list";

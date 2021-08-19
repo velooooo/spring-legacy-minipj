@@ -52,8 +52,8 @@
 					<p>${cdto.content}</p>
 					<p>작성자 : ${cdto.writer}</p>
 					<div class="btn-box clear">
-						<input class="btn-item" type="button" value="댓글삭제" onClick="location.href='/qna/del?no=${cdto.no}&pageCoNo=${pageCoNo}'"/>
-						<input class="btn-item" type="button" value="댓글수정" onClick="location.href='/qna/edit?no=${cdto.no}&pageCoNo=${pageCoNo}'"/>
+						<input class="btn-item" type="button" value="댓글삭제" onClick="location.href='/qna/delCo?no=${cdto.no}&pageCoNo=${pageCoNo}'"/>
+						<input class="btn-item" type="button" value="댓글수정" onClick="location.href='/qna/editCo?no=${cdto.no}&pageCoNo=${pageCoNo}'"/>
 						<input class="btn-item" type="button" value="대댓글쓰기" onClick="location.href='/qna/write?no=${cdto.no}&pageCoNo=${pageCoNo}&co_group=${cdto.co_group}&co_step=${bdto.co_step}&co_depth=${bdto.co_depth}'"/>
 					</div>
 				</li>
