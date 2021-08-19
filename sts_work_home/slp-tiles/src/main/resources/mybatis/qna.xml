@@ -9,24 +9,64 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="noMax" resultType="Integer">
 		select max(no)
 		from qna
+		where subject not like 'comment'
 	</select>
+	
+	<!-- 최대 글번호 얻기 -->
+	<select id="noCoMax" resultType="Integer">
+		select max(no)
+		from qna
+		where subject like 'comment'
+	</select>
+	
+	<!-- 댓글 끼워넣기 위치확보 -->
+	<update id="coStep" parameterType="qnaDomain">
+		update qna set
+		co_step=co_step+1
+		where co_group=#{co_group} and co_step>#{co_step}
+	</update>
 
-	<!-- 글 쓰기, 답글쓰기 insert -->
+	<!-- 글 저장 -->
 	<insert id="insertDao" parameterType="qnaDomain">
 		insert into qna
-		(writer,subject, content, pw, wdate, ip)
-		values(#{writer},#{subject},#{content},#{pw},NOW(),#{ip})
+		(writer,subject, content, pw, wdate, co_group, co_step, co_depth, ip)
+		values(#{writer},#{subject},#{content},#{pw},NOW(),#{co_group},#{co_step},#{co_depth},#{ip})
+	</insert>
+	
+	<!-- 댓글 저장 -->
+	<insert id="insertCoDao" parameterType="qnaDomain">
+		insert into qna
+		(writer,subject, content, pw, wdate, co_group, co_step, co_depth, ip)
+		values(#{writer},#{subject},#{content},#{pw},NOW(),#{co_group},#{co_step},#{co_depth},#{ip})
 	</insert>
 
 	<!-- 글 갯수 -->
 	<select id="countDao" resultType="int">
-		select count(*) from qna;
+		select count(*) from qna
+		where subject not like 'comment'
+	</select>
+	
+	<!-- 글 갯수 -->
+	<select id="countCoDao" resultType="int">
+		select count(*) from qna
+		where subject like 'comment'
 	</select>
 
 	<!-- 리스트 -->
 	<select id="listDao" parameterType="java.util.Map"
 		resultType="com.mvc.pj.domain.QnaDTO">
-		select * from qna order by no desc limit
+		select * from qna 
+		where subject not like 'comment' 
+		order by co_group desc, co_step asc limit
+		#{start}, #{cnt}
+	</select>
+	
+	<!-- 댓글(답글) 리스트 -->
+	<select id="listCoDao" parameterType="java.util.Map"
+		resultType="com.mvc.pj.domain.QnaDTO">
+		select * from qna 
+		where subject like 'comment' 
+		order by co_group desc, co_step asc limit
 		#{start}, #{cnt}
 	</select>
 

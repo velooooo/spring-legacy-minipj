@@ -24,14 +24,19 @@ public class QnaController {
 
 	// 글작성폼
 	@RequestMapping("/qna/write")
-	public String write(Model model, String no, String pageNo) {
-
+	public String write(Model model, String no, String co_group, String co_step, String co_depth, String pageNo) {
 		if (no == null) {// no이 없으면 글 쓰기
 			no = "0"; // 글 번호
+			co_group = "1"; // 글 그룹
+			co_step = "0"; // 글 순서
+			co_depth = "0";// 글 깊이
 		} // if-end
-			// 모두 넣어줌.
+			// 답글, 원글 모두 넣어줌.
 		model.addAttribute("pageNo", pageNo);
 		model.addAttribute("no", new Integer(no));
+		model.addAttribute("co_group", new Integer(co_group));
+		model.addAttribute("co_step", new Integer(co_step));
+		model.addAttribute("co_depth", new Integer(co_depth));
 		//
 		return ".main.qna.write";// View return write.jsp
 	}// writeForm-end
@@ -43,6 +48,42 @@ public class QnaController {
 		qnaDTO.setIp(ip);
 
 		sqlSession.insert("qna.insertDao", qnaDTO);
+
+		return "redirect:/qna/list";// redirect:qna.jsp
+	}// writePro-end
+
+	// 글작성 저장
+	@RequestMapping(value = "/qna/saveCoPro", method = RequestMethod.POST)
+	public String writeCoPro(@ModelAttribute("qnaDTO") QnaDTO qnaDTO, HttpServletRequest request) {
+		int maxCoNo = 0;// 최대 글 번호 넣을 변수
+
+		if (sqlSession.selectOne("qna.noCoMax") != null) {// 글번호가 있으면
+			// 글 번호가 있음 -> 글이 있음
+			maxCoNo = sqlSession.selectOne("qna.noCoMax");// 최대 글번호 maxNo에 할당
+		}
+
+		if (maxCoNo != 0) {// 글이 이미 있으면
+			maxCoNo = maxCoNo + 1;// co_group 글 그룹에 넣음.
+		} else {// 처음 글이면
+			maxCoNo = 1;// co_group 글 그룹에 1을 넣음.(1번 번호)
+		}
+
+		String ip = request.getRemoteAddr();// ip얻기
+		qnaDTO.setIp(ip);
+
+		// 원글, 답글
+		if (qnaDTO.getNo() != 0) {// 답글이면
+			// 답글 끼워넣기 위치 확보
+			sqlSession.update("qna.coStep", qnaDTO);
+			qnaDTO.setCo_step(qnaDTO.getCo_step() + 1);// 글 순서 + 1
+			qnaDTO.setCo_depth(qnaDTO.getCo_depth() + 1);// 글 깊이 + 1
+		} else {// 원글이면
+			qnaDTO.setCo_group(new Integer(maxCoNo));// 글 그룹
+			qnaDTO.setCo_step(new Integer(0));// 글 순서
+			qnaDTO.setCo_depth(new Integer(0));// 글 깊이
+		}
+
+		sqlSession.insert("qna.insertCoDao", qnaDTO);
 
 		return "redirect:/qna/list";// redirect:qna.jsp
 	}// writePro-end

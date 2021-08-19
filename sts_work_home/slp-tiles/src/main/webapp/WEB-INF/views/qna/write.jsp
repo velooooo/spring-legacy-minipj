@@ -30,6 +30,7 @@ function check(){
 <form method="post" action="/qna/savePro" onSubmit="return check()">
 	<input type="hidden" name="pageNo" value="${pageNo}">
 	<input type="hidden" name="no" value="${no}">
+	
 	<div class="form-box">
 		<div class="form-block">
 			<p><label for="writer">이름</label></p>

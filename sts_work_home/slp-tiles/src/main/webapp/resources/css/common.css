@@ -94,15 +94,35 @@ tbody tr{}
 tbody td{border-bottom: 1px solid #ddd;text-align: center;}
 tbody td:first-child{ text-align: center;}
 tbody td.bo_tit{ text-align: left;}
+textarea{width: 100%;height: auto;resize: none;border: 1px solid #ddd;line-height: 30px;text-indent: 5px;}
 .tit-board{ min-width: 700px; width: 100%; max-width: 1200px; text-align: left; font-size: 20px; line-height: 60px;}
 .con-info{ min-width: 700px; width: 100%; max-width: 1200px;}
 .con-info span{ display: block; line-height: 20px;}
 .con-info strong{ line-height: 20px;}
 .con-block{ font-size: 15px; line-height: 30px;}
 
+/* btn style */
 .btn-box{ min-width: 700px; width: 100%; max-width: 1200px;}
 .btn-box .btn-item{background-color: #6db33f;border: none;color: #fff;font-size: 16px;padding: 4px 10px;float: right;margin: 0 2px;border-radius: 3px;}
 
+/* comment style */
+.comment-list{ padding: 30px 0;}
+.comment-box{}
+.comment-block{}
+.comment-list form{}
+.comment-list .form-box{}
+.comment-list .form-block{
+}
+.comment-list .form-block p{
+    height: auto;
+    margin: 5px 0;
+    width: 100%;
+}
+.comment-list .form-block label{}
+.comment-list .form-block input{border: 1px solid #ddd;line-height: 30px;text-indent: 5px;}
+.comment-list .form-block input[type="submit"],
+.comment-list .form-block input[type="button"]{}
+.comment-list .btn-box{}
 
 @media all and (max-width:900px) {
 	aside{ display: none;}
