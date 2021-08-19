@@ -25,28 +25,47 @@
 	<div class="comment-list">
 		<ul class="comment-box">
 			<li class="comment-block">
-			<form method="post" action="/qna/saveCoPro" onSubmit="return check()">
-				<input type="hidden" name="pageNo" value="${pageNo}">
-				<input type="hidden" name="no" value="${no}">
-				<input type="hidden" name="subject" value="comment">
-				
-				<div class="form-box">
-					<div class="form-block">
-						<p><input type="text" name="writer" id="writer" size="30" placeholder="작성자"/></p>
-						<p><textarea name="content" id="content" placeholder="내용"></textarea></p>
+				<form method="post" action="/qna/saveCoPro" onSubmit="return check()">
+					<input type="hidden" name="pageNo" value="${pageNo}">
+					<input type="hidden" name="no" value="${no}">
+					<input type="hidden" name="subject" value="comment">
+					
+					<div class="form-box">
+						<div class="form-block">
+							<p><input type="text" name="writer" id="writer" size="30" placeholder="작성자"/></p>
+							<p><textarea name="content" id="content" placeholder="내용"></textarea></p>
+						</div>
+						<div class="form-block">
+							<p><input type="password" name="pw" id="pw" size="20" placeholder="비밀번호"/></p>
+						</div>
+						<div class="btn-box clear">
+							<input class="btn-item" type="submit" value="저장"/>
+						</div>
 					</div>
-					<div class="form-block">
-						<p><input type="password" name="pw" id="pw" size="20" placeholder="비밀번호"/></p>
-					</div>
-					<div class="btn-box clear">
-						<input class="btn-item" type="submit" value="저장"/>
-					</div>
-				</div>
-			</form>
+				</form>
 			</li>
+			<!-- 댓글이 있으면 -->
+			<c:if test="${countCo!=0}">
 			<!-- for시작 -->
-			<li class="comment-block"></li>
+			<c:forEach var="cdto" items="${listCo}">
+				<li class="comment-block">
+					<p>${cdto.content}</p>
+					<p>작성자 : ${cdto.writer}</p>
+					<div class="btn-box clear">
+						<input class="btn-item" type="button" value="댓글삭제" onClick="location.href='/qna/del?no=${cdto.no}&pageCoNo=${pageCoNo}'"/>
+						<input class="btn-item" type="button" value="댓글수정" onClick="location.href='/qna/edit?no=${cdto.no}&pageCoNo=${pageCoNo}'"/>
+						<input class="btn-item" type="button" value="대댓글쓰기" onClick="location.href='/qna/write?no=${cdto.no}&pageCoNo=${pageCoNo}&co_group=${cdto.co_group}&co_step=${bdto.co_step}&co_depth=${bdto.co_depth}'"/>
+					</div>
+				</li>
+			</c:forEach>
 			<!-- for끝 -->
+			</c:if>
+			<!-- 댓글이 없으면 -->
+			<c:if test="${countCo==0}">
+				<li class="comment-block">
+				저장된 댓글이 없습니다.
+				</li>
+			</c:if>
 		</ul>
 	</div>
 	<!-- 댓글(답글)끝 -->

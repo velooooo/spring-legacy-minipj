@@ -108,7 +108,14 @@ textarea{width: 100%;height: auto;resize: none;border: 1px solid #ddd;line-heigh
 /* comment style */
 .comment-list{ padding: 30px 0;}
 .comment-box{}
-.comment-block{}
+.comment-block{
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
 .comment-list form{}
 .comment-list .form-box{}
 .comment-list .form-block{

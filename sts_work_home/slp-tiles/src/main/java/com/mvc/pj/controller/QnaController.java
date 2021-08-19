@@ -136,7 +136,7 @@ public class QnaController {
 
 	// 글 내용 보기
 	@RequestMapping("/qna/view")
-	public String content(Model model, String no, String pageNo) {
+	public String content(Model model, String no, String pageNo, String pageCoNo) {
 
 		int no1 = Integer.parseInt(no);
 		sqlSession.update("qna.readcountDao", no1);// 조회수증가
@@ -150,6 +150,49 @@ public class QnaController {
 		model.addAttribute("pageNo", pageNo);// 페이지번호
 		model.addAttribute("no", no1);
 		model.addAttribute("qdto", qdto);
+		
+		//====================================================================
+		if (pageCoNo == null) {// 페이지 번호 없으면
+			pageCoNo = "1";
+		}
+		int pageCoSize = 10;// 페이지당 글 10개씩 보여줌
+		int currentCoPage = Integer.parseInt(pageCoNo);// 현재 페이지
+
+		int startCoRow = (currentCoPage - 1) * pageCoSize + 1;// 페이지의 첫 번째 행 구함 : (현재페이지-1)*10+1
+		int endCoRow = currentCoPage * pageCoSize;// 페이지의 마지막 행
+		// startCoRow 1 11 21
+		// endCoRow 10 20 30
+		int countCo = 0;// 총 글 갯수 넣을 변수
+		int pageCoBlock = 10;// 블럭 당 페이지번호 10개
+
+		countCo = sqlSession.selectOne("qna.countCoDao");// 글 갯수
+		int numberCo = countCo - (currentCoPage - 1) * pageCoSize;// 글 번호 (글이 37개인 경우, 37 36 35 : 역순으로 나옴)
+
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("start", startCoRow - 1);// 시작 번호
+		map.put("cnt", pageCoSize);// 총 갯수
+
+		int pageCoCount = countCo / pageCoSize + (countCo % pageCoSize == 0 ? 0 : 1);// 총 페이지 수 구하기
+		// 몫 나머지레코드 없으면0 : 있으면 1 더함
+		//
+		int startCoPage = (currentCoPage / pageCoBlock) * 10 + 1;// 블럭 시작페이지
+		int endCoPage = startCoPage + pageCoBlock - 1;// 블럭의 끝 페이지
+		// --------------------------------------------------------------------
+		List<QnaDTO> listCo = sqlSession.selectList("qna.listCoDao", map);
+
+		model.addAttribute("pageCoNo", pageCoNo);// 페이지번호
+		model.addAttribute("currentCoPage", currentCoPage);// 현재 페이지
+		model.addAttribute("startCoRow", startCoRow);// 페이지의 첫 번째 행
+		model.addAttribute("endCoRow", endCoRow);// 페이지의 마지막 행
+		model.addAttribute("pageCoBlock", pageCoBlock);// 블럭 당 페이지번호 10개
+		model.addAttribute("pageCoCount", pageCoCount);// 총 페이지 수
+		model.addAttribute("startCoPage", startCoPage);// 블럭 시작페이지
+		model.addAttribute("endCoPage", endCoPage);// 블럭의 끝 페이지
+		model.addAttribute("countCo", countCo);// 전체 글 갯수
+		model.addAttribute("pageCoSize", pageCoSize);// 페이지당 글 갯수
+		model.addAttribute("numberCo", numberCo);// 글 번호
+		model.addAttribute("listCo", listCo);//
+		//====================================================================
 
 		return ".main.qna.view"; // view return content.jsp
 	}
