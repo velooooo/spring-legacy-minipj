@@ -23,12 +23,12 @@
 	</p>
 	<!-- 댓글(답글)시작 -->
 	<div class="comment-list">
+		<h2 class="tit">댓글 전체 ${countCo}개</h2>
 		<ul class="comment-box">
 			<li class="comment-block">
 				<form method="post" action="/qna/saveCoPro" onSubmit="return checkCo()">
-					<input type="hidden" name="pageNo" value="${pageNo}">
+					<input type="hidden" name="pageCoNo" value="${pageCoNo}">
 					<input type="hidden" name="no" value="${no}">
-					<input type="hidden" name="subject" value="comment">
 					<input type="hidden" name="co_is" value="1">
 					
 					<div class="form-box">
