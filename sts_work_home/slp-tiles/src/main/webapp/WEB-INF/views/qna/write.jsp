@@ -29,7 +29,6 @@ function check(){
 <h2 class="tit">QnA 글쓰기</h2>
 <form method="post" action="/qna/savePro" onSubmit="return check()">
 	<input type="hidden" name="pageNo" value="${pageNo}">
-	<input type="hidden" name="no" value="${no}">
 	
 	<div class="form-box">
 		<div class="form-block">

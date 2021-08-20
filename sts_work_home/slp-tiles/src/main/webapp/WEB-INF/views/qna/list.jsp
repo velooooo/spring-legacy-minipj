@@ -33,7 +33,13 @@
 			<!-- 글제목 -->
 			<td class="bo_tit">
 				<!-- 글제목을 클릭하면 글내용보기로 이동 -->
-				<a href="/qna/view?no=${qdto.no}&pageNo=${pageNo}" title="${qdto.subject}">${qdto.subject}</a>
+				<a href="/qna/view?no=${qdto.no}&pageNo=${pageNo}" title="${qdto.subject}">
+					${qdto.subject}
+					<c:if test="${countCo!=0}">
+					<img src="/resources/imgs/cocnt.gif" height="16" class="ico_co"/>
+						${countCo}
+					</c:if>
+				</a>
 			</td>
 			<td>${qdto.writer}</td>
 			<td><fmt:formatDate value="${qdto.wdate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
@@ -66,7 +72,7 @@
 			</c:if>
 			
 			<!-- 이전 블럭 -->
-			<c:if test="${startPage>10}">
+			<c:if test="${startPage>pageSize}">
 				<a href="/qna/list?pageNo=${startPage-10}">이전블럭</a>
 			</c:if>
 			

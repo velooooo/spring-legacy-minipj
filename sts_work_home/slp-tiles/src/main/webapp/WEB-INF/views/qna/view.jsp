@@ -30,6 +30,9 @@
 					<input type="hidden" name="pageCoNo" value="${pageCoNo}">
 					<input type="hidden" name="no" value="${no}">
 					<input type="hidden" name="co_is" value="1">
+					<%-- <input type="hidden" name="co_group" value="${co_group}">
+					<input type="hidden" name="co_step" value="${co_step}">
+					<input type="hidden" name="co_depth" value="${co_depth}"> --%>
 					
 					<div class="form-box">
 						<div class="form-block">
@@ -71,12 +74,41 @@
 	</div>
 	<!-- 댓글(답글)끝 -->
 </article>
+<!-- 블럭, 페이징 처리 -->
+<table>
+	<tr>
+		<td align="center">
+			<!-- 에러 방지 -->
+			<!-- 페이지수가 10,20,30보다 크면? -->
+			<c:if test="${endCoPage>pageCoCount}">
+				<c:set var="endCoPage" value="#{pageCoCount}"/>
+			</c:if>
+			
+			<!-- 이전 블럭 -->
+			<c:if test="${startCoPage>pageCoSize}">
+				<a href="/qna/view?no=${no}&pageNo=${pageNo}&pageCoNo=${startCoPage-10}">이전블럭</a>
+			</c:if>
+			
+			<!-- 페이지처리 -->
+			<c:forEach var="i" begin="${startCoPage}" end="${endCoPage}">
+				<a href="/qna/view?no=${no}&pageNo=${pageNo}&pageCoNo=${i}">[${i}]</a>
+			</c:forEach>
+			
+			<!-- 다음 블럭 -->
+			<c:if test="${endCoPage<pageCoCount}">
+				<a href="/qna/view?no=${no}&pageNo=${pageNo}&pageCoNo=${startCoPage+10}">다음블럭</a>
+			</c:if>
+		</td>
+	</tr>
+</table>
+
 <div class="btn-box clear">
 	<input class="btn-item" type="button" value="글삭제" onClick="location.href='/qna/del?no=${no}&pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="글수정" onClick="location.href='/qna/edit?no=${no}&pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="글목록" onClick="location.href='/qna/list?pageNo=${pageNo}'"/>
 	<input class="btn-item" type="button" value="새글쓰기" onClick="location.href='/qna/write'"/>
 </div>
+
 <script>
 function checkCo(){
 	if($('#writer').val()==''){

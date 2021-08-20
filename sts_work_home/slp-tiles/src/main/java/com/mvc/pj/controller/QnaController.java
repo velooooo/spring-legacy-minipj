@@ -44,9 +44,23 @@ public class QnaController {
 	// 글작성 저장
 	@RequestMapping(value = "/qna/savePro", method = RequestMethod.POST)
 	public String writePro(@ModelAttribute("qnaDTO") QnaDTO qnaDTO, HttpServletRequest request) {
+		int maxNo = 0;// 최대 글 번호 넣을 변수
+
+		if (sqlSession.selectOne("qna.noMax") != null) {// 글번호가 있으면
+			// 글 번호가 있음 -> 글이 있음
+			maxNo = sqlSession.selectOne("qna.noMax");// 최대 글번호 maxNo에 할당
+		}
+
+		if (maxNo != 0) {// 글이 이미 있으면
+			maxNo = maxNo + 1;// re_group 글 그룹에 넣음.
+		} else {// 처음 글이면
+			maxNo = 1;// re_group 글 그룹에 1을 넣음.(1번 번호)
+		}
+		
 		String ip = request.getRemoteAddr();// ip얻기
 		qnaDTO.setIp(ip);
 
+		qnaDTO.setCo_group(new Integer(maxNo));// 글 그룹
 		sqlSession.insert("qna.insertDao", qnaDTO);
 
 		return "redirect:/qna/list";// redirect:qna.jsp
@@ -61,7 +75,7 @@ public class QnaController {
 			// 글 번호가 있음 -> 글이 있음
 			maxCoNo = sqlSession.selectOne("qna.noCoMax");// 최대 글번호 maxNo에 할당
 		}
-
+		
 		if (maxCoNo != 0) {// 글이 이미 있으면
 			maxCoNo = maxCoNo + 1;// co_group 글 그룹에 넣음.
 		} else {// 처음 글이면
@@ -101,9 +115,11 @@ public class QnaController {
 		// startRow 1 11 21
 		// endRow 10 20 30
 		int count = 0;// 총 글 갯수 넣을 변수
+		int countCo = 0;//총 댓글 갯수 넣을 변수
 		int pageBlock = 10;// 블럭 당 페이지번호 10개
-
+		
 		count = sqlSession.selectOne("qna.countDao");// 글 갯수
+		countCo = sqlSession.selectOne("qna.countCoDao");// 글 갯수
 		int number = count - (currentPage - 1) * pageSize;// 글 번호 (글이 37개인 경우, 37 36 35 : 역순으로 나옴)
 
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -127,10 +143,12 @@ public class QnaController {
 		model.addAttribute("startPage", startPage);// 블럭 시작페이지
 		model.addAttribute("endPage", endPage);// 블럭의 끝 페이지
 		model.addAttribute("count", count);// 전체 글 갯수
+		model.addAttribute("countCo", countCo);// 전체 댓글 갯수
 		model.addAttribute("pageSize", pageSize);// 페이지당 글 갯수
 		model.addAttribute("number", number);// 글 번호
 		model.addAttribute("list", list);//
 
+		System.out.println(countCo);
 		return ".main.qna.list";// 뷰 리턴 //views/main.jsp
 	}
 
@@ -155,7 +173,7 @@ public class QnaController {
 		if (pageCoNo == null) {// 페이지 번호 없으면
 			pageCoNo = "1";
 		}
-		int pageCoSize = 10;// 페이지당 글 10개씩 보여줌
+		int pageCoSize = 5;// 페이지당 글 10개씩 보여줌
 		int currentCoPage = Integer.parseInt(pageCoNo);// 현재 페이지
 
 		int startCoRow = (currentCoPage - 1) * pageCoSize + 1;// 페이지의 첫 번째 행 구함 : (현재페이지-1)*10+1
@@ -165,12 +183,13 @@ public class QnaController {
 		int countCo = 0;// 총 글 갯수 넣을 변수
 		int pageCoBlock = 10;// 블럭 당 페이지번호 10개
 
-		countCo = sqlSession.selectOne("qna.countCoDao");// 글 갯수
+		countCo = sqlSession.selectOne("qna.countCoDao", no1);// 글 갯수
 		int numberCo = countCo - (currentCoPage - 1) * pageCoSize;// 글 번호 (글이 37개인 경우, 37 36 35 : 역순으로 나옴)
 
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("start", startCoRow - 1);// 시작 번호
 		map.put("cnt", pageCoSize);// 총 갯수
+		map.put("co_group", no1);// 210820추가
 
 		int pageCoCount = countCo / pageCoSize + (countCo % pageCoSize == 0 ? 0 : 1);// 총 페이지 수 구하기
 		// 몫 나머지레코드 없으면0 : 있으면 1 더함
@@ -192,6 +211,10 @@ public class QnaController {
 		model.addAttribute("pageCoSize", pageCoSize);// 페이지당 글 갯수
 		model.addAttribute("numberCo", numberCo);// 글 번호
 		model.addAttribute("listCo", listCo);//
+		
+		System.out.println("pageCoNo 페이지번호 : " + pageCoNo);
+		System.out.println("co_group : " + no);
+		System.out.println("countCo 전체 글 갯수 : " + countCo);
 		// ====================================================================
 
 		return ".main.qna.view"; // view return content.jsp

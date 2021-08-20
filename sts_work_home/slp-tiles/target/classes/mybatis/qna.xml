@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="noCoMax" resultType="Integer">
 		select max(no)
 		from qna
-		where co_is=1
+		where co_is=1 and co_group=#{no}
 	</select>
 	
 	<!-- 댓글 끼워넣기 위치확보 -->
@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<!-- 글 저장 -->
-	<insert id="insertDao" parameterType="qnaDomain">
+	<insert id="insertDao" parameterType="qnaDomain" useGeneratedKeys="true" keyColumn="no" keyProperty="no">
 		insert into qna
 		(writer,subject, content, pw, wdate, co_group, co_step, co_depth, ip)
 		values(#{writer},#{subject},#{content},#{pw},NOW(),#{co_group},#{co_step},#{co_depth},#{ip})
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertCoDao" parameterType="qnaDomain">
 		insert into qna
 		(writer, content, pw, wdate, co_is, co_group, co_step, co_depth, ip)
-		values(#{writer},#{content},#{pw},NOW(),#{co_is},#{co_group},#{co_step},#{co_depth},#{ip})
+		values(#{writer},#{content},#{pw},NOW(),#{co_is},#{no},#{co_step},#{co_depth},#{ip})
 	</insert>
 
 	<!-- 글 갯수 -->
@@ -49,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글 갯수 -->
 	<select id="countCoDao" resultType="int">
 		select count(*) from qna
-		where co_is=1
+		where co_is=1 and co_group=#{no}
 	</select>
 
 	<!-- 리스트 -->
@@ -65,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listCoDao" parameterType="java.util.Map"
 		resultType="com.mvc.pj.domain.QnaDTO">
 		select * from qna 
-		where co_is=1
+		where co_is=1 and co_group=#{co_group}
 		order by no desc, co_step asc limit
 		#{start}, #{cnt}
 	</select>
