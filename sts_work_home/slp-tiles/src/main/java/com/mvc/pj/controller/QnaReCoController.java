@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mvc.pj.domain.QnaReCoDTO;
 import com.mvc.pj.domain.QnaDTO;
+import com.mvc.pj.domain.QnaReCoDTO;
 
 @Controller
 public class QnaReCoController {
@@ -33,10 +35,45 @@ public class QnaReCoController {
 		model.addAttribute("pageNo", pageNo);
 		model.addAttribute("no", new Integer(no));
 		//
-		return ".main.qna-re-co.write";// View return write.jsp
+		return ".main.qnaReCo.write";// View return write.jsp
 	}
-	// 글작성 저장
 
+	// 글작성 저장
+	@RequestMapping(value = "/qna-re-co/savePro", method = RequestMethod.POST)
+	public String writePro(@ModelAttribute("qnaReCoDTO") QnaReCoDTO qnaReCoDTO, HttpServletRequest request) {
+		int maxNo = 0;// 최대 글 번호 넣을 변수
+
+		if (sqlSession.selectOne("qnaReCo.noMax") != null) {// 글번호가 있으면
+			// 글 번호가 있음 -> 글이 있음
+			maxNo = sqlSession.selectOne("qnaReCo.noMax");// 최대 글번호 maxNo에 할당
+		}
+
+		if (maxNo != 0) {// 글이 이미 있으면
+			maxNo = maxNo + 1;// No_group 글 그룹에 넣음.
+		} else {// 처음 글이면
+			maxNo = 1;// No_group 글 그룹에 1을 넣음.(1번 번호)
+		}
+
+		String ip = request.getRemoteAddr();// ip얻기
+		qnaReCoDTO.setIp(ip);
+
+		// 원글, 답글
+		if (qnaReCoDTO.getNo() != 0) {// 답글이면
+			// 답글 끼워넣기 위치 확보
+			sqlSession.update("qnaReCo.reStep", qnaReCoDTO);
+			qnaReCoDTO.setRe_step(qnaReCoDTO.getRe_step() + 1);// 글 순서 + 1
+			qnaReCoDTO.setRe_depth(qnaReCoDTO.getRe_depth() + 1);// 글 깊이 + 1
+		} else {// 원글이면
+			qnaReCoDTO.setRe_group(new Integer(maxNo));// 글 그룹
+			qnaReCoDTO.setRe_step(new Integer(0));// 글 순서
+			qnaReCoDTO.setRe_depth(new Integer(0));// 글 깊이
+		}
+
+		sqlSession.insert("qnaReCo.insertDao", qnaReCoDTO);
+
+		return "redirect:/qna-re-co/list";// redirect:list.jsp
+	}// writePro-end
+	
 	// 리스트 출력
 	@RequestMapping("/qna-re-co/list")
 	public String list(Model model, String pageNo) {
@@ -81,15 +118,59 @@ public class QnaReCoController {
 		model.addAttribute("number", number);// 글 번호
 		model.addAttribute("list", list);//
 
-		return ".main.qna-re-co.list";// 뷰 리턴 //views/main.jsp
+		return ".main.qnaReCo.list";// 뷰 리턴 //views/main.jsp
 	}
-	
+
 	// 글 내용 보기
+	@RequestMapping("/qna-re-co/view")
+	public String content(Model model, String no, String pageNo) {
+
+		int no1 = Integer.parseInt(no);
+		sqlSession.update("qnaReCo.readcountDao", no1);// 조회수증가
+
+		QnaReCoDTO bdto = sqlSession.selectOne("qnaReCo.viewDao", no1);
+
+		String content = bdto.getContent();
+		content = content.replace("\n", "<br/>");
+
+		model.addAttribute("content", content);
+		model.addAttribute("pageNo", pageNo);// 페이지번호
+		model.addAttribute("no", no1);
+		model.addAttribute("bdto", bdto);
+
+		return ".main.qnaReCo.view"; // view return content.jsp
+	}
 
 	// 수정 폼
+	@RequestMapping("/qna-re-co/edit")
+	public ModelAndView updateForm(String no, String pageNo) {
+		int no1 = Integer.parseInt(no);
+		QnaReCoDTO bdto = sqlSession.selectOne("qnaReCo.viewDao", no1);
 
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("pageNo", pageNo);
+		mv.addObject("bdto", bdto);
+		mv.setViewName(".main.qnaReCo.edit");// updateForm.jsp
+
+		return mv;
+	}
 	// 글 수정 저장
+	@RequestMapping(value = "/qna-re-co/updatePro", method = RequestMethod.POST)
+	public ModelAndView updatePro(QnaReCoDTO qnaReCoDTO, String pageNo) {
+		sqlSession.update("qnaReCo.updateDao", qnaReCoDTO);
 
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("pageNo", pageNo);
+		mv.setViewName("redirect:/qna-re-co/list");//
+
+		return mv;
+	}
 	// 글 삭제
-
+	@RequestMapping("/qna-re-co/del")
+	public String delete(Model model, String no, String pageNo) {
+		sqlSession.delete("qnaReCo.deleteDao", new Integer(no));
+		
+		model.addAttribute("pageNo", pageNo);
+		return "redirect:/qna-re-co/list";
+	}
 }
