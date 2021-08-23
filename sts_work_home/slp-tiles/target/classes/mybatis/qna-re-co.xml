@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="qnaReCo">
 
-	<!-- 최대번호선택 -->
+	<!-- 최대 글 번호 선택 -->
 	<select id="noMax" resultType="Integer">
 		select max(no)
 		from qna_re_co
@@ -21,30 +21,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 답글위치확보 -->
 	<update id="reStep" parameterType="qnaReCoDomain">
 		update qna_re_co
-		set re_depth=re_depth+1
-		where no_group=#{no_group} and re_depth>#{re_depth}
+		set re_step=re_step+1
+		where re_group=#{re_group} and re_step>#{re_step}
 	</update>
 
 	<!-- 댓글위치확보 -->
 	<update id="coStep" parameterType="qnaReCoDomain">
 		update qna_re_co
-		set co_depth=co_depth+1
-		where no_group=#{no_group} and co_depth>#{co_depth}
+		set co_step=co_step+1
+		where co_group=#{co_group} and co_step>#{co_step}
 	</update>
 
 	<!-- 원글답글 등록 -->
 	<insert id="insertDao" parameterType="qnaReCoDomain">
 		insert into
-		qna_re_co(no_group, re_depth, co_is, co_depth, writer, subject, content, pw, wdate, ldate, hit,
-		ip)
-		values(#{no_group},#{re_depth},#{co_is},#{co_depth},#{writer},#{subject},#{content},#{pw},NOW(),NOW(),#{hit},#{ip})
+		qna_re_co(
+		re_group, re_step, re_depth, 
+		co_is, co_group, co_step, co_depth, 
+		writer, subject, content, pw, wdate, ldate, hit, ip)
+		values(
+		#{re_group},#{re_step},#{re_depth}, 
+		#{co_is},#{co_group},#{co_step},#{co_depth}, 
+		#{writer},#{subject},#{content},#{pw},NOW(),NOW(),#{hit},#{ip})
 	</insert>
 	
 	<!-- 댓글 등록 -->
 	<insert id="insertCoDao" parameterType="qnaReCoDomain">
 		insert into
-		qna_re_co(no_group, re_depth, co_is, co_depth, writer, content, pw, wdate, ldate, ip)
-		values(#{no_group},#{re_depth},#{co_is},#{co_depth},#{writer},#{content},#{pw},NOW(),NOW(),#{ip})
+		qna_re_co(
+		re_group, re_step, re_depth, 
+		co_is, co_group, co_step, co_depth, 
+		writer, subject, content, pw, wdate, ldate, hit, ip)
+		values(
+		#{re_group},#{re_step},#{re_depth}, 
+		#{co_is},#{co_group},#{co_step},#{co_depth}, 
+		#{writer},#{subject},#{content},#{pw},NOW(),NOW(),#{hit},#{ip})
 	</insert>
 
 	<!-- 목록출력 -->
@@ -52,7 +63,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select *
 		from qna_re_co
 		where co_is=0
-		order by no_group desc, re_depth asc limit #{start}, #{cnt}
+		order by re_group desc, re_step asc limit
+		#{start}, #{cnt}
 	</select>
 
 	<!-- 상세출력, 글 수정 폼 -->
@@ -66,9 +78,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 댓글출력 -->
 	<select id="coDao" parameterType="Integer"
 		resultType="qnaReCoDomain">
-		seledt *
+		select *
 		from qna_re_co
-		where no=#{no} and co_is=1
+		where co_is=1 and co_group=#{co_group}
+		order by co_group desc, co_step asc limit
+		#{start}, #{cnt}
 	</select>
 
 	<!-- 조회수증가 -->

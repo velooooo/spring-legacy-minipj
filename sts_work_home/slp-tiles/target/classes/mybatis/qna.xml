@@ -57,7 +57,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="com.mvc.pj.domain.QnaDTO">
 		select * from qna 
 		where co_is=0
-		order by no desc, co_step asc limit
+		order by no desc limit
 		#{start}, #{cnt}
 	</select>
 	

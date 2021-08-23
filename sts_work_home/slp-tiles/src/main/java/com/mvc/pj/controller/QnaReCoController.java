@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mvc.pj.domain.QnaReCoDTO;
-import com.mvc.pj.domain.QnaDTO;
-import com.mvc.pj.domain.QnaReCoDTO;
 
 @Controller
 public class QnaReCoController {
@@ -35,7 +33,7 @@ public class QnaReCoController {
 		model.addAttribute("pageNo", pageNo);
 		model.addAttribute("no", new Integer(no));
 		//
-		return ".main.qnaReCo.write";// View return write.jsp
+		return ".main.qna-re-co.write";// View return write.jsp
 	}
 
 	// 글작성 저장
@@ -103,7 +101,7 @@ public class QnaReCoController {
 		int startPage = (currentPage / pageBlock) * 10 + 1;// 블럭 시작페이지
 		int endPage = startPage + pageBlock - 1;// 블럭의 끝 페이지
 		// --------------------------------------------------------------------
-		List<QnaDTO> list = sqlSession.selectList("qnaReCo.listDao", map);
+		List<QnaReCoDTO> list = sqlSession.selectList("qnaReCo.listDao", map);
 
 		model.addAttribute("pageNo", pageNo);// 페이지번호
 		model.addAttribute("currentPage", currentPage);// 현재 페이지
@@ -118,7 +116,7 @@ public class QnaReCoController {
 		model.addAttribute("number", number);// 글 번호
 		model.addAttribute("list", list);//
 
-		return ".main.qnaReCo.list";// 뷰 리턴 //views/main.jsp
+		return ".main.qna-re-co.list";// 뷰 리턴 //views/main.jsp
 	}
 
 	// 글 내용 보기
@@ -126,31 +124,31 @@ public class QnaReCoController {
 	public String content(Model model, String no, String pageNo) {
 
 		int no1 = Integer.parseInt(no);
-		sqlSession.update("qnaReCo.readcountDao", no1);// 조회수증가
+		sqlSession.update("qnaReCo.hitDao", no1);// 조회수증가
 
-		QnaReCoDTO bdto = sqlSession.selectOne("qnaReCo.viewDao", no1);
+		QnaReCoDTO qdto = sqlSession.selectOne("qnaReCo.viewDao", no1);
 
-		String content = bdto.getContent();
+		String content = qdto.getContent();
 		content = content.replace("\n", "<br/>");
 
 		model.addAttribute("content", content);
 		model.addAttribute("pageNo", pageNo);// 페이지번호
 		model.addAttribute("no", no1);
-		model.addAttribute("bdto", bdto);
+		model.addAttribute("qdto", qdto);
 
-		return ".main.qnaReCo.view"; // view return content.jsp
+		return ".main.qna-re-co.view"; // view return content.jsp
 	}
 
 	// 수정 폼
 	@RequestMapping("/qna-re-co/edit")
 	public ModelAndView updateForm(String no, String pageNo) {
 		int no1 = Integer.parseInt(no);
-		QnaReCoDTO bdto = sqlSession.selectOne("qnaReCo.viewDao", no1);
+		QnaReCoDTO qdto = sqlSession.selectOne("qnaReCo.viewDao", no1);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageNo", pageNo);
-		mv.addObject("bdto", bdto);
-		mv.setViewName(".main.qnaReCo.edit");// updateForm.jsp
+		mv.addObject("qdto", qdto);
+		mv.setViewName(".main.qna-re-co.edit");// updateForm.jsp
 
 		return mv;
 	}
